@@ -389,6 +389,23 @@ const IMAGES = {
   },
   // รูป Recap (ถ้าเว้นว่างระบบใช้รูปของกิจกรรมที่เกี่ยวข้อง)
   recaps: {},
+  // รูปโปรไฟล์คน: ใส่ตามชื่อ (me = ตัวผู้ใช้เอง) ถ้าเว้นว่างจะเป็นวงกลมสี
+  // ผู้ใช้ยังเปลี่ยนรูปตัวเองในแอปได้ด้วย โดยกดรูปโปรไฟล์ในหน้า Profile
+  people: {
+    me: '', // Jennie Kim
+    Ploy: '',
+    Beam: '',
+    Champ: '',
+    Dao: '',
+    Fern: '',
+    Ton: '',
+    Lisa: '',
+    Rose: '',
+    Mint: '',
+    Jisoo: '',
+    Pim: '',
+    Nam: '',
+  },
   misc: {
     map: '', // route map
     sync: '', // contact-sync screen picture
@@ -921,6 +938,7 @@ const S = {
   cq: '',
   ps: '',
   att: null,
+  myPhoto: '', // รูปโปรไฟล์ที่ผู้ใช้เลือกในแอป
   etab: 'details', // แท็บในหน้ารายละเอียดกิจกรรม
   postType: 'buddy',
   addPlan: true,
@@ -1065,8 +1083,17 @@ const unreadCount = () =>
   activeAlerts().filter((al) => !S.read['al:' + al.id]).length + clubUpdates().filter((u) => !S.read[u.key]).length;
 
 const empty = (t) => `<div class="p mu" style="margin-top:20px;text-align:center">${t}</div>`;
-const avatar = (c, s = 40) =>
-  `<span style="width:${s}px;height:${s}px;border-radius:${s / 2}px;background:${c};flex:none;display:inline-block"></span>`;
+// รูปโปรไฟล์คน: รูปจาก IMAGES.people (หรือรูปที่ผู้ใช้เลือกเอง) ถ้าไม่มี = วงกลมสี
+const personImg = (name) => {
+  const key = !name || name == USER.name ? 'me' : name;
+  return key == 'me' ? S.myPhoto || IMAGES.people.me : (IMAGES.people || {})[key];
+};
+const avatar = (c, s = 40, name) => {
+  const src = name && personImg(name);
+  return src
+    ? `<img src="${src}" alt="${name}" width="${s}" height="${s}" style="width:${s}px;height:${s}px;border-radius:${s / 2}px;object-fit:cover;flex:none;display:block">`
+    : `<span style="width:${s}px;height:${s}px;border-radius:${s / 2}px;background:${c};flex:none;display:inline-block"></span>`;
+};
 const friendLine = (f) => f.likes.join(' · ') + (f.going ? ' · Going to ' + A[f.going].title : '');
 const recapView = (r) => {
   const a = A[r.act];
@@ -1210,12 +1237,12 @@ const postCard = (p, compact) => {
               ? `<button disabled class="lb" style="flex:1;height:38px;border-radius:19px;font-weight:700;font-size:13px;opacity:.7">Requested…</button>`
               : `<button data-a="pj:${p.id}" class="bb" style="flex:1;height:38px;border-radius:19px;font-weight:700;font-size:13px">Join</button>`
       }<button data-go="chat:dm~${p.name}~${p.act}" class="y" style="flex:1;height:38px;border-radius:19px;font-weight:700;font-size:13px">Chat</button></div>`;
-  return `<div style="margin:12px 20px 0;border:1.5px solid var(--bd);border-radius:22px;padding:12px"><div class="row">${avatar(p.color, 36)}<div style="flex:1"><b>${p.name}</b><div class="mu" style="font-size:11px">${p.time}</div></div><span class="tag">${p.type == 'buddy' ? 'Looking for buddy' : 'Shared'}</span></div>
+  return `<div style="margin:12px 20px 0;border:1.5px solid var(--bd);border-radius:22px;padding:12px"><div class="row">${avatar(p.color, 36, p.name)}<div style="flex:1"><b>${p.name}</b><div class="mu" style="font-size:11px">${p.time}</div></div><span class="tag">${p.type == 'buddy' ? 'Looking for buddy' : 'Shared'}</span></div>
 <div style="margin:8px 0;font-size:14px">${p.text}</div>${compact ? '' : actMini(p.act, 'COMMUNITY › attached activity')}${actions}</div>`;
 };
 
 const friendRow = (f, i, linkToActivity) =>
-  `<div class="row" style="margin:0 20px;padding:10px 0;border-bottom:1px solid #EEF1FA">${avatar(f.color)}<${linkToActivity ? `button data-go="event:${f.going}"` : 'div'} style="flex:1;text-align:left"><b style="font-size:14px">${f.name}</b><div class="mu" style="font-size:11px">${friendLine(f)}</div></${linkToActivity ? 'button' : 'div'}><button data-a="conn:${i}" class="${S.connected[i] ? 'lb' : 'nb'}" style="width:92px;height:34px;border-radius:17px;font-size:12px;font-weight:700">${S.connected[i] ? 'Added' : 'Connect'}</button></div>`;
+  `<div class="row" style="margin:0 20px;padding:10px 0;border-bottom:1px solid #EEF1FA">${avatar(f.color, 40, f.name)}<${linkToActivity ? `button data-go="event:${f.going}"` : 'div'} style="flex:1;text-align:left"><b style="font-size:14px">${f.name}</b><div class="mu" style="font-size:11px">${friendLine(f)}</div></${linkToActivity ? 'button' : 'div'}><button data-a="conn:${i}" class="${S.connected[i] ? 'lb' : 'nb'}" style="width:92px;height:34px;border-radius:17px;font-size:12px;font-weight:700">${S.connected[i] ? 'Added' : 'Connect'}</button></div>`;
 
 const clubRow = (c) =>
   `<div class="card row" style="margin:10px 20px 0;gap:12px"><button data-go="club:${c.id}" class="row" style="flex:1;text-align:left;gap:12px">${clubLogo(c.id, 56)}<span><b style="font-size:14px;display:block">${c.name}</b><span class="mu" style="font-size:11px">${c.cat} · ${c.members} members · ${clubActivities(c.id).length} upcoming</span></span></button><button data-a="fol:${c.id}" class="${S.following[c.id] ? 'lb' : 'nb'}" style="width:84px;height:34px;border-radius:17px;font-size:12px;font-weight:700">${S.following[c.id] ? 'Following' : 'Follow'}</button></div>`;
@@ -1378,7 +1405,7 @@ const SC = {
 <div class="mu" style="text-align:center;font-size:13px;margin:4px 28px 0">Enter your phone number to sign up for this app</div>
 <div class="row" style="margin:20px 28px 0"><div class="inp row" style="width:70px;justify-content:center;font-weight:600">+66</div>
 <input class="inp" aria-label="Phone number" placeholder="08X XXX XXXX" inputmode="tel"></div>
-<div style="margin:12px 28px 0"><button class="btn" data-go="otp" style="background:#5DB4F0;color:#fff">Continue</button></div>
+<div style="margin:12px 28px 0"><button class="btn" data-go="otp" style="background:var(--b);color:#fff">Continue</button></div>
 <div class="mu" style="margin:16px 0;text-align:center;font-size:12px">or</div>
 <div style="margin:0 28px"><button class="btn gr" data-go="sync">Continue with Google</button><button class="btn gr" data-go="sync" style="margin-top:10px">Continue with Apple</button></div>
 <div class="mu" style="margin:22px 40px 0;text-align:center;font-size:11px">By clicking continue, you agree to our Terms of Service and Privacy Policy</div>`,
@@ -1515,7 +1542,7 @@ const SC = {
             ? buddyPosts
                 .map(
                   (p) =>
-                    `<div class="row" style="align-items:flex-start;gap:12px">${avatar(p.color, 36)}<div style="flex:1;min-width:0"><div style="font-size:14px"><b style="font-weight:600">${p.name}</b> <span class="mu" style="font-size:12px">· ${p.time}</span></div><div style="font-size:14px;line-height:1.5;margin-top:2px">${p.text}</div>${
+                    `<div class="row" style="align-items:flex-start;gap:12px">${avatar(p.color, 36, p.name)}<div style="flex:1;min-width:0"><div style="font-size:14px"><b style="font-weight:600">${p.name}</b> <span class="mu" style="font-size:12px">· ${p.time}</span></div><div style="font-size:14px;line-height:1.5;margin-top:2px">${p.text}</div>${
                       p.mine
                         ? `<button data-go="postdetail:${p.id}" style="margin-top:8px;height:34px;padding:0 14px;border-radius:10px;background:#F1F4FA;font-weight:600;font-size:13px">${p.interested.length} interested ›</button>`
                         : `<div class="row" style="gap:8px;margin-top:8px">${
@@ -1815,7 +1842,7 @@ ${pin}${ms.map(bubble).join('')}<div style="position:sticky;bottom:0;background:
               k == 'club'
                 ? clubLogo(id.split('~')[1], 44)
                 : k == 'dm'
-                  ? avatar((S.posts.find((p) => p.name == id.split('~')[1]) || { color: 'var(--ys)' }).color, 44)
+                  ? avatar((S.posts.find((p) => p.name == id.split('~')[1]) || { color: 'var(--ys)' }).color, 44, id.split('~')[1])
                   : imgSlot(id, 44, 22, 'INBOX › group activity');
           return `<button data-go="chat:${id}" class="row" style="margin:0 20px;padding:12px 0;border-bottom:1px solid #EEF1FA;width:calc(100% - 40px);text-align:left;gap:12px">${pic}<span style="flex:1;min-width:0"><span class="row" style="justify-content:space-between"><b style="font-size:14px">${chatTitle(id)}</b><span class="mu" style="font-size:11px">${last[2]}</span></span><span class="mu" style="font-size:12px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${k == 'club' ? 'Club · ' : k == 'group' ? 'Group · ' : ''}${last[0] == 'You' ? 'You: ' : ''}${last[1]}</span></span></button>`;
         })
@@ -1825,7 +1852,7 @@ ${pin}${ms.map(bubble).join('')}<div style="position:sticky;bottom:0;background:
 
   // ── COMMUNITY — ฟีด โพสต์ ผู้สนใจ และหน้าคลับ
   community: () =>
-    `<div class="p row" style="padding-top:26px">${avatar('var(--ys)')}<input id="cq" class="inp" aria-label="Find friends or clubs" placeholder="Find friends, clubs or posts" value="${S.cq}" style="height:44px;border-radius:22px">${iconBtn('data-go="inbox"', 'Messages', ICON.chat(), 'flex:none')}</div>
+    `<div class="p row" style="padding-top:26px">${avatar('var(--ys)', 40, USER.name)}<input id="cq" class="inp" aria-label="Find friends or clubs" placeholder="Find friends, clubs or posts" value="${S.cq}" style="height:44px;border-radius:22px">${iconBtn('data-go="inbox"', 'Messages', ICON.chat(), 'flex:none')}</div>
 <div class="p row" style="margin-top:12px;overflow-x:auto">${['Feed', 'Buddies', 'Clubs', 'Looking for buddy'].map((t) => `<button data-a="ctab:${t}" class="chip ${S.ctab == t ? 'on' : ''}">${t}</button>`).join('')}</div>
 <div id="cl">${communityList()}</div>
 <button data-a="newpost" class="y" style="position:sticky;bottom:12px;display:block;margin:12px 16px 0 auto;height:48px;padding:0 20px;border-radius:24px;font-weight:700">+ Post</button>`,
@@ -1877,7 +1904,7 @@ ${pin}${ms.map(bubble).join('')}<div style="position:sticky;bottom:0;background:
         ? p.interested
             .map(
               (q, j) =>
-                `<div class="row" style="margin:0 20px;padding:10px 0;border-bottom:1px solid #EEF1FA">${avatar(q.color)}<b style="flex:1">${q.name}</b><button data-a="acc:${p.id}:${j}" class="${q.accepted ? 'lb' : 'nb'}" style="width:96px;height:34px;border-radius:17px;font-size:12px;font-weight:700">${q.accepted ? 'Accepted' : 'Accept'}</button></div>`,
+                `<div class="row" style="margin:0 20px;padding:10px 0;border-bottom:1px solid #EEF1FA">${avatar(q.color, 40, q.name)}<b style="flex:1">${q.name}</b><button data-a="acc:${p.id}:${j}" class="${q.accepted ? 'lb' : 'nb'}" style="width:96px;height:34px;border-radius:17px;font-size:12px;font-weight:700">${q.accepted ? 'Accepted' : 'Accept'}</button></div>`,
             )
             .join('')
         : '<div class="p mu" style="margin-top:8px;font-size:13px">No one yet. Check back in a moment.</div>') +
@@ -1961,7 +1988,7 @@ ${pin}${ms.map(bubble).join('')}<div style="position:sticky;bottom:0;background:
       .slice(0, 3);
     return (
       hdr('Profile', USER.name, '<button data-go="settings" aria-label="Menu" style="font-size:26px">☰</button>') +
-      `<div class="p row" style="margin-top:14px;gap:16px"><span style="width:84px;height:84px;border-radius:42px;background:var(--ys);overflow:hidden;flex:none;display:block;position:relative"><svg viewBox="0 0 120 110" width="84" height="84"><circle cx="60" cy="40" r="22" fill="#10328F"/><path d="M20 110Q60 50 100 110Z" fill="#5B88D6"/></svg></span><div class="row" style="gap:24px"><div style="text-align:center"><b style="font-size:20px">${rs.length}</b><div class="mu" style="font-size:11px">Activities</div></div><div style="text-align:center"><b style="font-size:20px">${7 + Object.values(S.connected).filter(Boolean).length}</b><div class="mu" style="font-size:11px">Friends</div></div><button data-a="ctab-go:Clubs" style="text-align:center"><b style="font-size:20px">${Object.values(S.following).filter(Boolean).length}</b><div class="mu" style="font-size:11px">Clubs</div></button></div></div>
+      `<div class="p row" style="margin-top:14px;gap:16px"><label for="photo" aria-label="Change profile photo" style="width:84px;height:84px;flex:none;display:block;position:relative;cursor:pointer"><span style="width:84px;height:84px;border-radius:42px;background:var(--ys);overflow:hidden;display:block">${personImg(USER.name) ? `<img src="${personImg(USER.name)}" alt="${USER.name}" style="width:84px;height:84px;object-fit:cover;display:block">` : '<svg viewBox="0 0 120 110" width="84" height="84" aria-hidden="true"><circle cx="60" cy="40" r="22" fill="#10328F"/><path d="M20 110Q60 50 100 110Z" fill="#5B88D6"/></svg>'}</span><span style="position:absolute;right:-2px;bottom:-2px;width:28px;height:28px;border-radius:14px;background:var(--b);border:2px solid #fff;color:#fff;display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></span><input id="photo" type="file" accept="image/*" hidden></label><div class="row" style="gap:24px"><div style="text-align:center"><b style="font-size:20px">${rs.length}</b><div class="mu" style="font-size:11px">Activities</div></div><div style="text-align:center"><b style="font-size:20px">${7 + Object.values(S.connected).filter(Boolean).length}</b><div class="mu" style="font-size:11px">Friends</div></div><button data-a="ctab-go:Clubs" style="text-align:center"><b style="font-size:20px">${Object.values(S.following).filter(Boolean).length}</b><div class="mu" style="font-size:11px">Clubs</div></button></div></div>
 <div class="p row" style="margin-top:12px">${top.map((c) => `<span class="chip" style="padding:4px 12px;font-size:12px">${c}</span>`).join('')}</div>
 <div class="p" style="margin-top:16px;font-weight:700">Recap</div>
 <div class="p" style="margin-top:8px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px">${rs.map((r) => `<button data-go="recap:${r.id}" aria-label="Recap ${r.title}" style="text-align:left">${imgSlot('recap:' + r.id, 106, 16, 'PROFILE › recap tile · ' + r.title)}<b style="display:block;font-size:11px;margin-top:4px;line-height:1.2">${r.title}</b><span class="mu" style="font-size:10px">${r.dateLabel}</span></button>`).join('')}</div>`
@@ -2405,6 +2432,20 @@ document.addEventListener('input', (e) => {
   else if (t.id == 'cexp') S.pay.card.exp = t.value = fmtExp(t.value);
   else if (t.id == 'ccvc') S.pay.card.cvc = t.value = t.value.replace(/\D/g, '').slice(0, 4);
   else if (t.id == 'cname') S.pay.card.name = t.value;
+});
+
+// เลือกรูปโปรไฟล์จากเครื่อง (เก็บไว้เฉพาะระหว่างเปิดแอปครั้งนี้)
+document.addEventListener('change', (e) => {
+  if (e.target.id != 'photo' || !e.target.files || !e.target.files[0]) return;
+  const f = e.target.files[0];
+  if (!/^image\//.test(f.type)) return toast('Choose an image file');
+  const r = new FileReader();
+  r.onload = () => {
+    S.myPhoto = r.result;
+    render();
+    toast('Profile photo updated');
+  };
+  r.readAsDataURL(f);
 });
 
 document.addEventListener('keydown', (e) => {
