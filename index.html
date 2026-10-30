@@ -2,13 +2,14 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Vybe Prototype</title>
-<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
 <style>
 :root {
   --n: #10328f;
   --b: #5b88d6;
-  --y: #f2c230;
-  --ys: #fff3c4;
+  --y: #ffd65b;
+  --ys: #fff59d;
+  --yt: #493a11; /* ตัวหนังสือบนพื้นเหลืองอ่อน (ป้าย ปุ่มรอง) */
   --l: #eef3ff;
   --bd: #e3eafa;
   --mu: #5b6896;
@@ -32,7 +33,9 @@ body {
 }
 body {
   background: var(--bg);
-  font-family: Prompt, sans-serif;
+  font-family: 'Manrope', 'Noto Sans Thai', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   color: var(--n);
   display: flex;
   align-items: center;
@@ -72,6 +75,13 @@ button {
 }
 h1 {
   margin: 0;
+}
+h1, h2, h3 {
+  font-family: 'Plus Jakarta Sans', 'Noto Sans Thai', Arial, sans-serif;
+  letter-spacing: -0.025em;
+}
+.btn, .chip, #nav button {
+  font-family: 'Plus Jakarta Sans', 'Noto Sans Thai', Arial, sans-serif;
 }
 .p {
   padding: 0 20px;
@@ -129,6 +139,7 @@ h1 {
 }
 .tag {
   background: var(--ys);
+  color: var(--yt);
   font-size: 10px;
   font-weight: 700;
   padding: 2px 8px;
@@ -287,41 +298,41 @@ const IMAGES = {
     Running: {
       run: 'https://i.postimg.cc/J4pzXGt2/Golden-Hour-Lakeside-Group-Run.png', // Lumpini Sunrise Run
       fun: 'https://i.postimg.cc/QtzqVX1T/Bangkok-Lakeside-City-Fun-Run.png', // City Fun Run 5K
-      trail: '', // Trail Run Workshop
-      track: '', // Track Tuesday Intervals
-      chinarun: '', // Chinatown Night Run
-      river: '', // Riverside Long Run
-      tread: '', // Treadmill Tempo Class
-      c25k: '', // Couch to 5K: Week 1
-      halloween: '', // Halloween Glow Run
-      social10: '', // Sunday Social 10K
+      trail: 'https://i.postimg.cc/ZYd170JK/Golden-Hour-Riverside-Trail-Runners.png', // Trail Run Workshop
+      track: 'https://i.postimg.cc/FKf4hpX3/Joyful-Runners-at-Sunny-Stadium.png', // Track Tuesday Intervals
+      chinarun: 'https://i.postimg.cc/HkzwT095/Neon-Chinatown-Night-Run.png', // Chinatown Night Run
+      river: 'https://i.postimg.cc/NFLNhJHr/Riverside-Long-Run-Under-City-Lights-(1).png', // Riverside Long Run
+      tread: 'https://i.postimg.cc/j2XVQF3s/Sunlit-Premium-Treadmill-Class.png', // Treadmill Tempo Class
+      c25k: 'https://i.postimg.cc/BZMPvQNL/Golden-Hour-Urban-Park-Run.png', // Couch to 5K: Week 1
+      halloween: 'https://i.postimg.cc/3J9q967F/Lumpini-Park-Halloween-Glow-Run-(2).png', // Halloween Glow Run
+      social10: 'https://i.postimg.cc/66FqqHDx/Sunday-Social-10K-Park-Meetup.png', // Sunday Social 10K
     },
     Climbing: {
       climb: 'https://i.postimg.cc/PxKrnCbT/Sunlit-Urban-Bouldering-Gym.png', // Climbing Session
-      indoor: '', // Indoor Climbing
-      boul: '', // Bouldering Night
-      boul101: '', // Bouldering 101
-      lead: '', // Lead Climbing Course
-      bcomp: '', // Boulder Comp Night
-      crag: '', // Outdoor Crag Day Trip
+      indoor: 'https://i.postimg.cc/7P7XthRD/Spacious-Indoor-Climbing-Gym-Adventure.png', // Indoor Climbing
+      boul: 'https://i.postimg.cc/XJ5hg855/Bouldering-Night-in-Bangkok.png', // Bouldering Night
+      boul101: 'https://i.postimg.cc/m23PnW45/Ekkamai-Night-Bouldering-Social.png', // Bouldering 101
+      lead: 'https://i.postimg.cc/gk1ggRYv/Sunlit-Urban-Climbing-Gym.png', // Lead Climbing Course
+      bcomp: 'https://i.postimg.cc/1ttR548W/Bouldering-Comp-Night-Climber-and-Crowd.png', // Boulder Comp Night
+      crag: 'https://i.postimg.cc/y8S4Yc6n/Outdoor-Crag-Day-Trip.png', // Outdoor Crag Day Trip
     },
     Yoga: {
       yoga: 'https://i.postimg.cc/cHDcPJPG/Sunrise-Yoga-by-the-City-Lake.png', // Morning Yoga in the Park
-      yin: '', // Indoor Yoga
-      yoga2: '', // Sunset Yin Yoga
-      rooftop: '', // Rooftop Sunset Flow
-      vinyasa: '', // Power Vinyasa
-      aerial: '', // Aerial Yoga Intro
-      freeyoga: 'https://i.postimg.cc/pTPXSfFJ/Morning-Run-by-the-City-Lake.png', // Free Community Yoga
-      runyoga: '', // Yoga for Runners
+      yin: 'https://i.postimg.cc/k4NwjXJn/Serene-Sunlit-Garden-Yoga-Studio.png', // Indoor Yoga
+      yoga2: 'https://i.postimg.cc/DZW4ZxN9/Sunset-Skyline-Rooftop-Yoga.png', // Sunset Yin Yoga
+      rooftop: 'https://i.postimg.cc/DZW4ZxN9/Sunset-Skyline-Rooftop-Yoga.png', // Rooftop Sunset Flow
+      vinyasa: 'https://i.postimg.cc/t4K0FCR2/Sunrise-Yoga-Above-the-City.png', // Power Vinyasa
+      aerial: 'https://i.postimg.cc/jqMy2DZ2/Sunlit-Aerial-Yoga-Studio.png', // Aerial Yoga Intro
+      freeyoga: 'https://i.postimg.cc/cJZwbwF8/Sunrise-Yoga-by-the-Urban-Lake.png', // Free Community Yoga
+      runyoga: 'https://i.postimg.cc/QCz2dXFx/Sunlit-Park-Yoga-Gathering.png', // Yoga for Runners
     },
     Pilates: {
-      pil: '', // Reformer Pilates Intro
-      pil2: '', // Mat Pilates in the Park
-      jump: '', // Reformer Jump Board
-      posture: '', // Core & Posture Clinic
-      desk: '', // Pilates for Desk Workers
-      wall: '', // Wall Pilates Express
+      pil: 'https://i.postimg.cc/mrCbJRm7/Reformer-Pilates-Intro-Class.png', // Reformer Pilates Intro
+      pil2: 'https://i.postimg.cc/28SnDXRb/Sunlit-Lakeside-Pilates-Class.png', // Mat Pilates in the Park
+      jump: 'https://i.postimg.cc/sDWGsFHx/Bright-Modern-Pilates-Studio-Class.png', // Reformer Jump Board
+      posture: 'https://i.postimg.cc/4dwjSNhF/Serene-Pilates-Studio-Reformer-Class.png', // Core & Posture Clinic
+      desk: 'https://i.postimg.cc/L5tDbx7K/Guided-Stretch-in-a-Sunlit-Pilates-Studio.png', // Pilates for Desk Workers
+      wall: 'https://i.postimg.cc/bN6VcBrk/Sunlit-Wall-Sit-Pilates-Class.png', // Wall Pilates Express
     },
     Cycling: {
       cyc: 'https://i.postimg.cc/DZ7yNrXC/Sunrise-Cyclists-Along-Bangkok-s-Green-Canal.png', // Sunday Sunrise Ride
@@ -331,20 +342,20 @@ const IMAGES = {
       cafe: 'https://i.postimg.cc/FHYKmNGR/Riverside-Cycling-Through-Tropical-Cafes.png', // Cafe Hop Ride
     },
     Hiking: {
-      hike: '', // Khao Yai Day Hike
-      hike2: '', // Doi Suthep Sunrise Trek
-      erawan: '', // Erawan Waterfall Trail
-      mangrove: '', // Mangrove Boardwalk Walk
-      ridge: '', // Pak Chong Ridge Hike
-      heritage: '', // Old Town Heritage Walk
+      hike: 'https://i.postimg.cc/QCjDPytW/Khao-Yai-Day-Hike-Vista.png', // Khao Yai Day Hike
+      hike2: 'https://i.postimg.cc/R0mgc5bk/Sunrise-Hikers-at-a-Golden-Temple-Viewpoint.png', // Doi Suthep Sunrise Trek
+      erawan: 'https://i.postimg.cc/D0cGkHcv/Erawan-Waterfall-Hikers-Paradise.png', // Erawan Waterfall Trail
+      mangrove: 'https://i.postimg.cc/q7p9p307/Sunset-Boardwalk-with-Seagulls.png', // Mangrove Boardwalk Walk
+      ridge: 'https://i.postimg.cc/VsjssjPB/Hikers-Crossing-a-Forest-Bridge.png', // Pak Chong Ridge Hike
+      heritage: 'https://i.postimg.cc/HWBMsDg4/sen-h-me-xngke-a-de-n-chm-mrdk-thiy.png', // Old Town Heritage Walk
     },
     Swimming: {
-      swim: '', // Open Water Swim Clinic
-      swim2: '', // Morning Lap Swim Club
-      learnswim: '', // Adult Learn to Swim
-      stroke: '', // Stroke Video Clinic
-      seaswim: '', // Bang Saen Sea Swim
-      masters: '', // Masters Swim Night
+      swim: 'https://i.postimg.cc/m2Znvcxz/Bangkok-Open-Water-Swim-Clinic-at-Dawn.png', // Open Water Swim Clinic
+      swim2: 'https://i.postimg.cc/MKhGPJNH/Visutdrarom-Pool-Training-Session.png', // Morning Lap Swim Club
+      learnswim: 'https://i.postimg.cc/500Ycq30/Urban-Indoor-Pool-Training-at-Night.png', // Adult Learn to Swim
+      stroke: 'https://i.postimg.cc/FRy9BYMn/Indoor-Poolside-Swim-Analysis.png', // Stroke Video Clinic
+      seaswim: 'https://i.postimg.cc/zfRW3kh0/Sunny-Coastal-Swim-Event.png', // Bang Saen Sea Swim
+      masters: 'https://i.postimg.cc/R0vGHyMs/Nighttime-Urban-Swim-Training.png', // Masters Swim Night
     },
     'Ice Bath': {
       ice: 'https://i.postimg.cc/Vs9Rymb5/Golden-Hour-Rooftop-Ice-Bath-Spa.png', // Ice Bath Recovery
@@ -353,34 +364,34 @@ const IMAGES = {
       contrast: 'https://i.postimg.cc/rpxd5MBJ/Urban-Rooftop-Sauna-Retreat.png', // Contrast Therapy Night
     },
     'Muay Thai': {
-      muay: '', // Muay Thai Basics
-      pads: '', // Pad Work & Conditioning
-      womenmt: '', // Women’s Muay Thai
-      fightnight: '', // Fight Night Outing
-      shadow: '', // Shadowboxing in the Park
+      muay: 'https://i.postimg.cc/tC39Rn79/Sunlit-Muay-Thai-Garage-Gym.png', // Muay Thai Basics
+      pads: 'https://i.postimg.cc/tC3V0TjD/Muay-Thai-Garage-Night-Training.png', // Pad Work & Conditioning
+      womenmt: 'https://i.postimg.cc/K89STFnF/Women-s-Muay-Thai-Training-Line.png', // Women’s Muay Thai
+      fightnight: 'https://i.postimg.cc/Cx8K0mXh/Rajadamnern-Stadium-Fight-Night.png', // Fight Night Outing
+      shadow: 'https://i.postimg.cc/WzMPKHhk/Sunlit-Park-Boxing-Class.png', // Shadowboxing in the Park
     },
     Padel: {
-      padel: '', // Padel Taster Session
-      padel2: '', // Padel Mixer Night
-      americano: '', // Padel Americano
+      padel: 'https://i.postimg.cc/y6Fd2Qqk/Padel-Taster-Session-at-Sunset.png', // Padel Taster Session
+      padel2: 'https://i.postimg.cc/rFmB5s9z/Nighttime-Padel-Club-Social-Scene.png', // Padel Mixer Night
+      americano: 'https://i.postimg.cc/N0S6CN3R/Dusk-Doubles-at-Padel-Onnut.png', // Padel Americano
     },
     Dance: {
-      hiphop: '', // Hip-Hop Beginner Class
-      salsa: '', // Salsa Social Night
-      kpop: '', // K-Pop Dance Cover
-      dancefit: '', // Sunset Dance Fitness
+      hiphop: 'https://i.postimg.cc/8P71Nt9F/Nighttime-Hip-Hop-Dance-Studio.png', // Hip-Hop Beginner Class
+      salsa: 'https://i.postimg.cc/1RcW4Sh6/Salsa-Night-at-The-Ballroom.png', // Salsa Social Night
+      kpop: 'https://i.postimg.cc/ncXQgKkn/Urban-Dance-Studio-Rehearsal.png', // K-Pop Dance Cover
+      dancefit: 'https://i.postimg.cc/PrzYmbdq/aerobic-lumphini-park-dance.jpg', // Aerobic dance
     },
     Meditation: {
-      medi: '', // Morning Meditation in the Park
-      soundbath: '', // Sound Bath Evening
-      retreat: '', // Temple Meditation Day
-      breathe: '', // Lunchtime Breathwork
+      medi: 'https://i.postimg.cc/TYx4c9vb/Sunrise-Lakeside-Yoga-in-the-City-Park.png', // Morning Meditation in the Park
+      soundbath: 'https://i.postimg.cc/zBsXQQFV/Urban-Serenity-Sound-Bath.png', // Sound Bath Evening
+      retreat: 'https://i.postimg.cc/yWqgFdbj/Serene-Bangkok-Temple-Meditation-Courtyard.png', // Temple Meditation Day
+      breathe: 'https://i.postimg.cc/C1Yc4hW1/Sunlit-Urban-Breathwork-Class.png', // Lunchtime Breathwork
     },
     Paddle: {
-      sup: '', // Sunrise SUP on the River
-      kayak: '', // Klong Kayak Tour
-      supyoga: '', // SUP Yoga
-      mangkayak: '', // Mangrove Kayak Day Trip
+      sup: 'https://i.postimg.cc/Yqgpsk0k/Paddleboarding-Among-Ancient-Temple-Ruins.png', // Sunrise SUP on the River
+      kayak: 'https://i.postimg.cc/T3FJYVGC/Kayaking-Through-a-Thai-Canal-Village.png', // Klong Kayak Tour
+      supyoga: 'https://i.postimg.cc/sD2YY6g4/Golden-Hour-SUP-Yoga-at-the-Lake.png', // SUP Yoga
+      mangkayak: 'https://i.postimg.cc/jdr5KCG2/Mangrove-Kayak-Day-Trip-Poster.png', // Mangrove Kayak Day Trip
     },
   },
   // โลโก้คลับ ใส่โดยใช้ id ของคลับ
@@ -393,18 +404,18 @@ const IMAGES = {
   // ผู้ใช้ยังเปลี่ยนรูปตัวเองในแอปได้ด้วย โดยกดรูปโปรไฟล์ในหน้า Profile
   people: {
     me: '', // Jennie Kim
-    Ploy: '',
-    Beam: '',
-    Champ: '',
-    Dao: '',
-    Fern: '',
-    Ton: '',
-    Lisa: '',
-    Rose: '',
-    Mint: '',
-    Jisoo: '',
-    Pim: '',
-    Nam: '',
+    Ploy: 'https://i.postimg.cc/3JXc4C0r/Golden-Hour-Lakeside-Running-Selfie.png',
+    Beam: 'https://i.postimg.cc/RVzzDLkR/Triumphant-Hiker-at-a-Forest-Waterfall.png',
+    Champ: 'https://i.postimg.cc/qgfn85qx/Runner-by-the-City-Lake.png',
+    Dao: 'https://i.postimg.cc/8PNdjXLK/self-sawy-m-hwan-nih-xng-xbx-n.png',
+    Fern: 'https://i.postimg.cc/mkDbnG0H/Dance-Studio-Mirror-Selfie.png',
+    Ton: 'https://i.postimg.cc/Qd0ZRzJq/Relaxed-Portrait-in-a-Modern-Cafe.png',
+    Lisa: 'https://i.postimg.cc/FzmPFr9J/Candid-Cocktail-Night-at-the-Club.png',
+    Rose: 'https://i.postimg.cc/90M7YK12/Golden-Hour-Hiker-Overlooking-Mountain-Lake.png',
+    Mint: 'https://i.postimg.cc/vZWtTRNt/Sunlit-Cafe-Stroll-with-Iced-Coffee.png',
+    Jisoo: 'https://i.postimg.cc/nV4Bf8Ch/Luxury-Arrival-Style.png',
+    Pim: 'https://i.postimg.cc/Ls8Nn9Z5/Playful-Selfie-Over-Historic-Riverside-City.png',
+    Nam: 'https://i.postimg.cc/rwn5ZSKy/Pilates-Studio-Selfie-with-Neon-Sign.png',
   },
   misc: {
     map: '', // route map
@@ -480,244 +491,244 @@ const ACTIVITIES = [
   // Running
   { id: 'run', title: 'Lumpini Sunrise Run', cat: 'Running', club: 'brc', date: '2026-10-17', time: '06:00', mins: 60, price: 0,
     place: 'Lumpini Park', area: 'Silom', level: 'Beginner', indoor: false, going: 24, solo: 3, rating: 4.8, reviews: 120, km: 2.1,
-    about: 'An easy 5 km loop around the lake at a chatty pace, with pacers for every group.' },
+    about: 'วิ่งรอบสวนลุมพินี 5 กม. เพซสบาย ๆ มีเพเซอร์ดูแลแต่ละกลุ่ม' },
   { id: 'fun', title: 'City Fun Run 5K', cat: 'Running', club: 'rcb', date: '2026-10-24', time: '06:30', mins: 75, price: 350,
     place: 'Benjakitti Park', area: 'Asok', level: 'Beginner', indoor: false, going: 45, solo: 6, rating: 4.7, reviews: 86, km: 3.4,
-    badge: 'Official partner', about: 'A timed 5K with medals, music and a post-run breakfast.' },
+    badge: 'Official partner', about: 'วิ่ง 5 กม. แบบจับเวลา มีเหรียญ ดนตรี และอาหารเช้าหลังวิ่ง' },
   { id: 'trail', title: 'Trail Run Workshop', cat: 'Running', club: 'brc', date: '2026-10-18', time: '07:00', mins: 120, price: 250,
     place: 'Suan Luang Rama IX', area: 'Prawet', level: 'Intermediate', indoor: false, going: 10, solo: 1, rating: 4.6, reviews: 28, km: 9.5,
-    about: 'Learn uphill and downhill technique on the park’s dirt trails.' },
+    about: 'ฝึกเทคนิควิ่งขึ้นและลงเนินบนเส้นทางดินในสวน' },
   { id: 'track', title: 'Track Tuesday Intervals', cat: 'Running', club: 'ntr', date: '2026-10-20', time: '19:00', mins: 60, price: 0,
     place: 'Chulalongkorn Stadium', area: 'Pathum Wan', level: 'Intermediate', indoor: false, going: 32, solo: 4, rating: 4.6, reviews: 54, km: 1.8,
-    about: '400 m repeats under the stadium lights. Bring a watch.' },
+    about: 'ฝึกวิ่งอินเทอร์วัลระยะ 400 เมตร ในสนามช่วงเย็น' },
   { id: 'chinarun', title: 'Chinatown Night Run', cat: 'Running', club: 'rcb', date: '2026-10-23', time: '20:00', mins: 60, price: 150,
     place: 'Yaowarat Road', area: 'Samphanthawong', level: 'All levels', indoor: false, going: 38, solo: 5, rating: 4.7, reviews: 61, km: 4.6,
-    about: '7 km through Chinatown’s street-food lanes, finishing with dessert.' },
+    about: 'วิ่ง 7 กม. ผ่านย่านเยาวราช แล้วแวะกินของหวานหลังวิ่ง' },
   { id: 'river', title: 'Riverside Long Run', cat: 'Running', club: 'brc', date: '2026-10-25', time: '05:30', mins: 120, price: 0,
     place: 'Chao Phraya Riverside', area: 'Khlong San', level: 'Intermediate', indoor: false, going: 18, solo: 2, rating: 4.7, reviews: 40, km: 5.2,
-    about: '16 km at an easy pace along the river path, with water stops every 4 km.' },
+    about: 'วิ่งระยะ 16 กม. ริมแม่น้ำ เพซสบาย ๆ มีจุดให้น้ำทุก 4 กม.' },
   { id: 'tread', title: 'Treadmill Tempo Class', cat: 'Running', club: 'ntr', date: '2026-10-17', time: '08:00', mins: 45, price: 300,
     place: 'Run Lab Studio', area: 'Ari', level: 'All levels', indoor: true, going: 12, solo: 3, rating: 4.4, reviews: 18, km: 6.0,
-    about: 'A coach-led tempo session on treadmills in an air-conditioned studio.' },
+    about: 'คลาสฝึกวิ่งเทมโปบนลู่วิ่งในสตูดิโอ พร้อมโค้ชดูแล' },
   { id: 'c25k', title: 'Couch to 5K: Week 1', cat: 'Running', club: 'rcb', date: '2026-10-31', time: '07:00', mins: 45, price: 0,
     place: 'Benjakitti Park', area: 'Asok', level: 'Beginner', indoor: false, going: 40, solo: 9, rating: 4.9, reviews: 72, km: 3.4,
-    about: 'The first session of an 8-week plan for total beginners, using walk-run intervals.' },
+    about: 'โปรแกรมฝึกวิ่ง 5 กม. สำหรับมือใหม่ สัปดาห์แรกสลับเดินกับวิ่ง' },
   { id: 'halloween', title: 'Halloween Glow Run', cat: 'Running', club: 'ntr', date: '2026-10-31', time: '19:00', mins: 60, price: 200,
     place: 'Lumpini Park', area: 'Silom', level: 'All levels', indoor: false, going: 60, solo: 8, rating: 4.8, reviews: 33, km: 2.1,
-    about: 'Dress up and run a glow-in-the-dark 5K. Best costume wins a free month of classes.' },
+    about: 'วิ่ง 5 กม. ธีมฮาโลวีน แต่งชุดแฟนซี มีรางวัลชุดยอดเยี่ยม' },
   { id: 'social10', title: 'Sunday Social 10K', cat: 'Running', club: 'brc', date: '2026-11-08', time: '06:00', mins: 80, price: 0,
     place: 'Suan Rot Fai', area: 'Chatuchak', level: 'All levels', indoor: false, going: 28, solo: 4, rating: 4.6, reviews: 47, km: 8.0,
-    about: '10 km at a social pace, followed by coffee together.' },
+    about: 'วิ่ง 10 กม. แบบไม่เน้นทำเวลา แล้วแวะดื่มกาแฟด้วยกัน' },
 
   // Climbing
   { id: 'climb', title: 'Climbing Session', cat: 'Climbing', club: 'ccl', date: '2026-10-17', time: '13:00', mins: 120, price: 400,
     place: 'Climbing Gym A', area: 'Lat Phrao', level: 'Beginner', indoor: true, going: 5, solo: 2, rating: 4.6, reviews: 41, km: 4.0,
-    about: 'Top-rope climbing with belay coaching. Shoes and harness included.' },
+    about: 'ปีนผาแบบท็อปโรป มีโค้ชสอนใช้อุปกรณ์ พร้อมรองเท้าและฮาร์เนส' },
   { id: 'indoor', title: 'Indoor Climbing', cat: 'Climbing', club: 'ccl', date: '2026-10-17', time: '08:00', mins: 90, price: 450,
     place: 'Climbing Gym A', area: 'Lat Phrao', level: 'Beginner', indoor: true, going: 5, solo: 2, rating: 4.6, reviews: 39, km: 4.0,
-    about: 'A morning auto-belay and top-rope session. A great plan for rainy or smoggy days.' },
+    about: 'ปีนผาในร่มด้วยระบบออโต้บีเลย์และท็อปโรป เหมาะกับมือใหม่' },
   { id: 'boul', title: 'Bouldering Night', cat: 'Climbing', club: 'ccl', date: '2026-10-17', time: '19:00', mins: 120, price: 350,
     place: 'Boulder Lab', area: 'Ekkamai', level: 'Beginner', indoor: true, going: 20, solo: 4, rating: 4.7, reviews: 63, km: 5.5,
-    about: 'Social bouldering with new routes every week and music all night.' },
+    about: 'ปีนโบลเดอริงในยิม มีเส้นทางใหม่ให้ลองและเปิดเพลงระหว่างกิจกรรม' },
   { id: 'boul101', title: 'Bouldering 101', cat: 'Climbing', club: 'bdl', date: '2026-10-21', time: '18:30', mins: 90, price: 300,
     place: 'Boulder Lab', area: 'Ekkamai', level: 'Beginner', indoor: true, going: 10, solo: 4, rating: 4.6, reviews: 34, km: 5.5,
-    about: 'Footwork, falling safely and reading routes for first-timers.' },
+    about: 'เรียนพื้นฐานโบลเดอริง การวางเท้า การตกอย่างปลอดภัย และอ่านเส้นทาง' },
   { id: 'lead', title: 'Lead Climbing Course', cat: 'Climbing', club: 'vtw', date: '2026-10-24', time: '10:00', mins: 180, price: 1200,
     place: 'Vertical Wall BKK', area: 'Bang Na', level: 'Advanced', indoor: true, going: 6, solo: 1, rating: 4.8, reviews: 15, km: 11.2,
-    about: 'Learn to clip, fall and lead-belay. Top-rope experience required.' },
+    about: 'ฝึกปีนผาแบบลีด การคลิปเชือก การตก และบีเลย์ สำหรับผู้มีพื้นฐานท็อปโรป' },
   { id: 'bcomp', title: 'Boulder Comp Night', cat: 'Climbing', club: 'bdl', date: '2026-10-30', time: '19:00', mins: 180, price: 250,
     place: 'Boulder Lab', area: 'Ekkamai', level: 'All levels', indoor: true, going: 45, solo: 6, rating: 4.7, reviews: 22, km: 5.5,
-    about: 'A friendly in-house comp with 30 new problems and prizes.' },
+    about: 'แข่งขันโบลเดอริงแบบเป็นกันเอง มีโจทย์ปีน 30 เส้นทางและของรางวัล' },
   { id: 'crag', title: 'Outdoor Crag Day Trip', cat: 'Climbing', club: 'ccl', date: '2026-11-07', time: '06:00', mins: 600, price: 1800,
     place: 'Khao Chin Lae', area: 'Lopburi', level: 'Intermediate', indoor: false, going: 12, solo: 2, rating: 4.9, reviews: 12, km: 150,
-    about: 'A day on limestone sport routes. Transport and gear included.' },
+    about: 'ทริปปีนหน้าผาหินปูนที่ลพบุรี รวมรถรับส่งและอุปกรณ์' },
 
   // Yoga
   { id: 'yoga', title: 'Morning Yoga in the Park', cat: 'Yoga', club: 'pyc', date: '2026-10-18', time: '07:00', mins: 60, price: 350,
     place: 'Benjakitti Park', area: 'Asok', level: 'All levels', indoor: false, going: 6, solo: 2, rating: 4.5, reviews: 30, km: 2.8,
-    about: 'Gentle hatha flow on the lawn by the lake. Mats provided.' },
+    about: 'ฝึกหฐโยคะเบา ๆ บนสนามหญ้าริมทะเลสาบ มีเสื่อให้' },
   { id: 'yin', title: 'Indoor Yoga', cat: 'Yoga', club: 'stk', date: '2026-10-17', time: '08:00', mins: 60, price: 300,
     place: 'Studio K', area: 'Thong Lo', level: 'All levels', indoor: true, going: 8, solo: 3, rating: 4.7, reviews: 52, km: 3.1,
-    about: 'A calm morning flow in a filtered-air studio.' },
+    about: 'คลาสโยคะในสตูดิโอ เน้นเคลื่อนไหวช้า ๆ และผ่อนคลาย' },
   { id: 'yoga2', title: 'Sunset Yin Yoga', cat: 'Yoga', club: 'stk', date: '2026-10-16', time: '18:00', mins: 75, price: 300,
     place: 'Studio K', area: 'Thong Lo', level: 'All levels', indoor: true, going: 15, solo: 3, rating: 4.7, reviews: 44, km: 3.1,
-    about: 'Long, slow holds to unwind after the week.' },
+    about: 'ฝึกหยินโยคะ ค้างท่าและยืดเหยียดช้า ๆ เพื่อคลายความตึง' },
   { id: 'rooftop', title: 'Rooftop Sunset Flow', cat: 'Yoga', club: 'rfy', date: '2026-10-23', time: '17:30', mins: 60, price: 450,
     place: 'Sky Deck Silom', area: 'Silom', level: 'All levels', indoor: false, going: 14, solo: 4, rating: 4.8, reviews: 37, km: 2.6,
-    about: 'Vinyasa flow above the city skyline as the sun goes down.' },
+    about: 'ฝึกวินยาสะโยคะบนดาดฟ้า ชมวิวเมืองช่วงพระอาทิตย์ตก' },
   { id: 'vinyasa', title: 'Power Vinyasa', cat: 'Yoga', club: 'rfy', date: '2026-10-19', time: '07:00', mins: 60, price: 400,
     place: 'Sky Deck Silom', area: 'Silom', level: 'Intermediate', indoor: true, going: 10, solo: 2, rating: 4.6, reviews: 21, km: 2.6,
-    about: 'A strong, sweaty flow to start the work week.' },
+    about: 'คลาสวินยาสะโยคะแบบเข้มข้น เน้นความแข็งแรงและการเคลื่อนไหวต่อเนื่อง' },
   { id: 'aerial', title: 'Aerial Yoga Intro', cat: 'Yoga', club: 'stk', date: '2026-10-24', time: '14:00', mins: 75, price: 650,
     place: 'Studio K', area: 'Thong Lo', level: 'Beginner', indoor: true, going: 6, solo: 2, rating: 4.7, reviews: 19, km: 3.1,
-    about: 'Try inversions in a silk hammock with a step-by-step teacher.' },
+    about: 'ฝึกโยคะผ้าสำหรับมือใหม่ เรียนท่าพื้นฐานและท่ากลับหัวกับครู' },
   { id: 'freeyoga', title: 'Free Community Yoga', cat: 'Yoga', club: 'pyc', date: '2026-10-25', time: '08:00', mins: 60, price: 0,
     place: 'Lumpini Park', area: 'Silom', level: 'Beginner', indoor: false, going: 40, solo: 10, rating: 4.6, reviews: 88, km: 2.1,
-    about: 'A donation-based class for everyone. Bring your own mat.' },
+    about: 'โยคะกลางแจ้งสำหรับทุกระดับ นำเสื่อมาเอง บริจาคตามสมัครใจ' },
   { id: 'runyoga', title: 'Yoga for Runners', cat: 'Yoga', club: 'pyc', date: '2026-11-01', time: '08:30', mins: 60, price: 250,
     place: 'Suan Rot Fai', area: 'Chatuchak', level: 'All levels', indoor: false, going: 18, solo: 4, rating: 4.6, reviews: 26, km: 8.0,
-    about: 'Stretch hips, hamstrings and calves after your long run.' },
+    about: 'โยคะยืดสะโพก ต้นขาด้านหลัง และน่อง เหมาะสำหรับคนวิ่ง' },
 
   // Pilates
   { id: 'pil', title: 'Reformer Pilates Intro', cat: 'Pilates', club: 'sfl', date: '2026-10-18', time: '09:00', mins: 50, price: 500,
     place: 'Studio Flow', area: 'Phrom Phong', level: 'Beginner', indoor: true, going: 8, solo: 3, rating: 4.7, reviews: 58, km: 3.0,
-    about: 'Learn the reformer basics in a small class of eight.' },
+    about: 'เรียนพิลาทิสเครื่องรีฟอร์มเมอร์เบื้องต้น ในกลุ่มเล็ก 8 คน' },
   { id: 'pil2', title: 'Mat Pilates in the Park', cat: 'Pilates', club: 'ppc', date: '2026-10-24', time: '07:30', mins: 60, price: 0,
     place: 'Suan Rot Fai', area: 'Chatuchak', level: 'All levels', indoor: false, going: 22, solo: 6, rating: 4.5, reviews: 31, km: 8.0,
-    about: 'Free core-focused mat class under the trees.' },
+    about: 'พิลาทิสบนเสื่อในสวน เน้นฝึกกล้ามเนื้อแกนกลาง ฟรีไม่มีค่าใช้จ่าย' },
   { id: 'jump', title: 'Reformer Jump Board', cat: 'Pilates', club: 'sfl', date: '2026-10-24', time: '08:00', mins: 50, price: 650,
     place: 'Studio Flow', area: 'Phrom Phong', level: 'Intermediate', indoor: true, going: 6, solo: 1, rating: 4.6, reviews: 14, km: 3.0,
-    about: 'Low-impact cardio intervals on the reformer jump board.' },
+    about: 'พิลาทิสรีฟอร์มเมอร์พร้อมจัมป์บอร์ด เน้นคาร์ดิโอแรงกระแทกต่ำ' },
   { id: 'posture', title: 'Core & Posture Clinic', cat: 'Pilates', club: 'cor', date: '2026-10-20', time: '18:30', mins: 60, price: 400,
     place: 'Core Lab Pilates', area: 'Ari', level: 'Beginner', indoor: true, going: 8, solo: 3, rating: 4.6, reviews: 20, km: 6.2,
-    about: 'Fix rounded shoulders and build deep core strength.' },
+    about: 'ฝึกพิลาทิสเพื่อเสริมแกนกลางและปรับท่าทาง ลดอาการไหล่ห่อ' },
   { id: 'desk', title: 'Pilates for Desk Workers', cat: 'Pilates', club: 'cor', date: '2026-10-27', time: '12:15', mins: 45, price: 350,
     place: 'Core Lab Pilates', area: 'Ari', level: 'Beginner', indoor: true, going: 10, solo: 4, rating: 4.7, reviews: 17, km: 6.2,
-    about: 'A lunch-hour class for stiff backs and tight shoulders.' },
+    about: 'คลาสพิลาทิสช่วงพักเที่ยง เน้นยืดหลังและไหล่สำหรับคนทำงานโต๊ะ' },
   { id: 'wall', title: 'Wall Pilates Express', cat: 'Pilates', club: 'ppc', date: '2026-11-03', time: '19:00', mins: 40, price: 250,
     place: 'Ari Community Space', area: 'Ari', level: 'All levels', indoor: true, going: 12, solo: 3, rating: 4.4, reviews: 9, km: 6.0,
-    about: 'A quick full-body burn using only a wall and a mat.' },
+    about: 'พิลาทิสแบบใช้ผนังและเสื่อ ฝึกกล้ามเนื้อทั่วร่างกายในคลาสสั้น ๆ' },
 
   // Cycling
   { id: 'cyc', title: 'Sunday Sunrise Ride', cat: 'Cycling', club: 'bcc', date: '2026-10-18', time: '05:30', mins: 150, price: 0,
     place: 'Bang Kachao', area: 'Phra Pradaeng', level: 'Beginner', indoor: false, going: 31, solo: 5, rating: 4.8, reviews: 92, km: 9.0,
-    about: 'A flat, shady 25 km loop through Bangkok’s green lung.' },
+    about: 'ปั่นจักรยานระยะ 25 กม. รอบบางกระเจ้า เส้นทางร่มรื่นและค่อนข้างราบ' },
   { id: 'cyc2', title: 'Night Ride Bangkok', cat: 'Cycling', club: 'nrd', date: '2026-10-24', time: '20:00', mins: 120, price: 150,
     place: 'Rama VIII Bridge', area: 'Bang Phlat', level: 'Intermediate', indoor: false, going: 18, solo: 2, rating: 4.6, reviews: 40, km: 7.5,
-    about: 'A 30 km city ride past lit-up temples and bridges.' },
+    about: 'ปั่นจักรยานในกรุงเทพฯ ช่วงกลางคืน ระยะ 30 กม. ผ่านวัดและสะพาน' },
   { id: 'skylane', title: 'Sky Lane Loop Ride', cat: 'Cycling', club: 'bcc', date: '2026-10-25', time: '06:00', mins: 120, price: 100,
     place: 'Sky Lane Suvarnabhumi', area: 'Lat Krabang', level: 'All levels', indoor: false, going: 50, solo: 7, rating: 4.7, reviews: 66, km: 28,
-    about: 'Car-free laps on the 23 km airport bike track. Rentals on site.' },
+    about: 'ปั่นจักรยานบนสนาม Sky Lane ระยะรอบละ 23 กม. มีบริการเช่าจักรยาน' },
   { id: 'spin', title: 'Rhythm Spin Class', cat: 'Cycling', club: 'nrd', date: '2026-10-21', time: '19:00', mins: 45, price: 380,
     place: 'Spin House Sukhumvit', area: 'Asok', level: 'All levels', indoor: true, going: 20, solo: 6, rating: 4.5, reviews: 48, km: 3.2,
-    about: 'Ride to the beat in a dark room with club lighting.' },
+    about: 'คลาสปั่นจักรยานในร่มตามจังหวะเพลง พร้อมไฟและดนตรี' },
   { id: 'cafe', title: 'Cafe Hop Ride', cat: 'Cycling', club: 'bcc', date: '2026-10-31', time: '07:00', mins: 180, price: 200,
     place: 'Bang Kachao', area: 'Phra Pradaeng', level: 'Beginner', indoor: false, going: 25, solo: 6, rating: 4.7, reviews: 30, km: 9.0,
-    about: 'An easy ride between three cafes. Bike rental on site.' },
+    about: 'ปั่นจักรยานสบาย ๆ ในบางกระเจ้า แวะคาเฟ่ 3 ร้าน มีจักรยานให้เช่า' },
 
   // Hiking
   { id: 'hike', title: 'Khao Yai Day Hike', cat: 'Hiking', club: 'tbt', date: '2026-10-24', time: '06:00', mins: 600, price: 650,
     place: 'Khao Yai National Park', area: 'Nakhon Ratchasima', level: 'Beginner', indoor: false, going: 14, solo: 3, rating: 4.8, reviews: 45, km: 165,
-    about: 'Jungle trails, hornbills and a waterfall. Van from Victory Monument.' },
+    about: 'เดินป่าในเขาใหญ่ ชมนกเงือกและน้ำตก มีรถตู้จากอนุสาวรีย์ชัยฯ' },
   { id: 'hike2', title: 'Doi Suthep Sunrise Trek', cat: 'Hiking', club: 'tbt', date: '2026-10-25', time: '04:30', mins: 300, price: 500,
     place: 'Doi Suthep', area: 'Chiang Mai', level: 'Intermediate', indoor: false, going: 9, solo: 2, rating: 4.9, reviews: 23, km: 690,
-    about: 'The Monk’s Trail up to the temple in time for sunrise.' },
+    about: 'เดินเส้นทางวัดผาลาดขึ้นดอยสุเทพ เพื่อชมพระอาทิตย์ขึ้น' },
   { id: 'erawan', title: 'Erawan Waterfall Trail', cat: 'Hiking', club: 'wkn', date: '2026-11-01', time: '06:00', mins: 600, price: 750,
     place: 'Erawan National Park', area: 'Kanchanaburi', level: 'Beginner', indoor: false, going: 20, solo: 5, rating: 4.8, reviews: 38, km: 190,
-    about: 'Hike all seven tiers and swim in the turquoise pools.' },
+    about: 'เดินเที่ยวน้ำตกเอราวัณทั้ง 7 ชั้น และแวะเล่นน้ำตามจุดที่อนุญาต' },
   { id: 'mangrove', title: 'Mangrove Boardwalk Walk', cat: 'Hiking', club: 'wkn', date: '2026-10-18', time: '07:30', mins: 120, price: 0,
     place: 'Bang Pu Nature Reserve', area: 'Samut Prakan', level: 'Beginner', indoor: false, going: 16, solo: 4, rating: 4.5, reviews: 22, km: 35,
-    about: 'A flat walk through the mangroves with seagull spotting.' },
+    about: 'เดินศึกษาธรรมชาติบนทางเดินป่าชายเลนบางปู พร้อมดูนก' },
   { id: 'ridge', title: 'Pak Chong Ridge Hike', cat: 'Hiking', club: 'tbt', date: '2026-11-07', time: '05:30', mins: 480, price: 900,
     place: 'Pak Chong Hills', area: 'Nakhon Ratchasima', level: 'Intermediate', indoor: false, going: 11, solo: 2, rating: 4.7, reviews: 14, km: 155,
-    about: 'A steady climb to a ridge viewpoint over the valley.' },
+    about: 'เดินขึ้นเขาที่ปากช่อง ไปยังจุดชมวิวบนสันเขา' },
   { id: 'heritage', title: 'Old Town Heritage Walk', cat: 'Hiking', club: 'wkn', date: '2026-10-25', time: '16:00', mins: 150, price: 0,
     place: 'Rattanakosin Island', area: 'Phra Nakhon', level: 'Beginner', indoor: false, going: 30, solo: 8, rating: 4.6, reviews: 52, km: 6.8,
-    about: 'A 10,000-step walk past temples, palaces and old shophouses.' },
+    about: 'เดินชมย่านเมืองเก่าประมาณ 10,000 ก้าว ผ่านวัด วัง และตึกแถวเก่า' },
 
   // Swimming
   { id: 'swim', title: 'Open Water Swim Clinic', cat: 'Swimming', club: 'swl', date: '2026-10-18', time: '08:00', mins: 90, price: 350,
     place: 'Bangkok Aquatic Center', area: 'Hua Mak', level: 'Beginner', indoor: false, going: 12, solo: 3, rating: 4.6, reviews: 26, km: 10.4,
-    about: 'Practise sighting and drafting before your first open-water race.' },
-  { id: 'swim2', title: 'Morning Lap Swim Club', cat: 'Swimming', club: 'lcb', date: '2026-10-17', time: '07:00', mins: 60, price: 120,
-    place: 'Lumpini Pool', area: 'Silom', level: 'All levels', indoor: false, going: 16, solo: 4, rating: 4.5, reviews: 35, km: 2.1,
-    about: 'Shared lanes sorted by pace, with a coach on deck.' },
+    about: 'ฝึกการมองทิศทางและว่ายตามกลุ่ม เพื่อเตรียมตัวว่ายน้ำเปิด' },
+  { id: 'swim2', title: 'Morning Lap Swim Club', cat: 'Swimming', club: 'lcb', date: '2026-10-17', time: '09:00', mins: 60, price: 120,
+    place: 'Visutdrarom Swimming Pool', area: 'Pathum Wan', level: 'All levels', indoor: false, going: 16, solo: 4, rating: 4.5, reviews: 35, km: 2.1,
+    about: 'ว่ายน้ำเป็นกลุ่ม แบ่งเลนตามความเร็ว มีโค้ชคอยแนะนำ' },
   { id: 'learnswim', title: 'Adult Learn to Swim', cat: 'Swimming', club: 'swl', date: '2026-10-20', time: '19:00', mins: 60, price: 450,
     place: 'Swim Lab Pool', area: 'Sathorn', level: 'Beginner', indoor: true, going: 6, solo: 3, rating: 4.8, reviews: 29, km: 2.9,
-    about: 'Never too late. Small groups in a warm indoor pool.' },
+    about: 'เรียนว่ายน้ำพื้นฐานสำหรับผู้ใหญ่ แบบกลุ่มเล็กในสระในร่ม' },
   { id: 'stroke', title: 'Stroke Video Clinic', cat: 'Swimming', club: 'swl', date: '2026-10-24', time: '10:00', mins: 90, price: 600,
     place: 'Swim Lab Pool', area: 'Sathorn', level: 'Intermediate', indoor: true, going: 8, solo: 2, rating: 4.7, reviews: 12, km: 2.9,
-    about: 'Underwater filming and feedback on your freestyle.' },
+    about: 'ถ่ายวิดีโอใต้น้ำเพื่อวิเคราะห์และปรับท่าว่ายฟรีสไตล์' },
   { id: 'seaswim', title: 'Bang Saen Sea Swim', cat: 'Swimming', club: 'ows', date: '2026-11-01', time: '06:30', mins: 180, price: 400,
     place: 'Bang Saen Beach', area: 'Chonburi', level: 'Advanced', indoor: false, going: 15, solo: 2, rating: 4.8, reviews: 10, km: 95,
-    about: 'A 2 km guided sea swim with kayak support.' },
+    about: 'ว่ายน้ำทะเลระยะ 2 กม. มีผู้นำทางและเรือคายัคดูแลความปลอดภัย' },
   { id: 'masters', title: 'Masters Swim Night', cat: 'Swimming', club: 'lcb', date: '2026-10-28', time: '19:30', mins: 75, price: 150,
     place: 'Lumpini Pool', area: 'Silom', level: 'Intermediate', indoor: false, going: 22, solo: 3, rating: 4.5, reviews: 19, km: 2.1,
-    about: 'Structured sets for regular swimmers chasing faster times.' },
+    about: 'ซ้อมว่ายน้ำเป็นเซ็ต เน้นเพิ่มความเร็วสำหรับคนที่ว่ายน้ำเป็นประจำ' },
 
   // Ice Bath
   { id: 'ice', title: 'Ice Bath Recovery', cat: 'Ice Bath', club: 'rcs', date: '2026-10-17', time: '16:00', mins: 45, price: 400,
     place: 'Recovery Studio', area: 'Thong Lo', level: 'Beginner', indoor: true, going: 10, solo: 3, rating: 4.4, reviews: 22, km: 5.0,
-    about: 'A guided 3-minute plunge with breathing coaching.' },
+    about: 'แช่น้ำแข็ง 3 นาที พร้อมโค้ชแนะนำการหายใจ' },
   { id: 'ice2', title: 'Ice Bath & Sauna Social', cat: 'Ice Bath', club: 'rcs', date: '2026-10-18', time: '17:00', mins: 90, price: 450,
     place: 'Recovery Studio', area: 'Thong Lo', level: 'All levels', indoor: true, going: 12, solo: 3, rating: 4.6, reviews: 27, km: 5.0,
-    about: 'Hot and cold rounds with music and herbal tea.' },
+    about: 'สลับเข้าเซาน่าและแช่น้ำเย็น พร้อมดนตรีและชาสมุนไพร' },
   { id: 'breath', title: 'Breathwork & Cold Plunge', cat: 'Ice Bath', club: 'cpc', date: '2026-10-24', time: '09:00', mins: 75, price: 500,
     place: 'Cold Plunge Club House', area: 'Ari', level: 'Beginner', indoor: true, going: 10, solo: 4, rating: 4.7, reviews: 18, km: 6.0,
-    about: 'Learn a breathing method, then put it to the test in the tub.' },
+    about: 'ฝึกเทคนิคการหายใจ ก่อนทดลองแช่น้ำเย็นโดยมีผู้สอนดูแล' },
   { id: 'contrast', title: 'Contrast Therapy Night', cat: 'Ice Bath', club: 'rcs', date: '2026-10-29', time: '19:00', mins: 60, price: 550,
     place: 'Recovery Studio', area: 'Thong Lo', level: 'Intermediate', indoor: true, going: 8, solo: 2, rating: 4.6, reviews: 9, km: 5.0,
-    about: 'Longer sauna and plunge rounds for regulars.' },
+    about: 'สลับเซาน่าและแช่น้ำเย็นรอบที่นานขึ้น เหมาะกับคนมีประสบการณ์' },
 
   // Muay Thai
   { id: 'muay', title: 'Muay Thai Basics', cat: 'Muay Thai', club: 'mtg', date: '2026-10-17', time: '10:00', mins: 60, price: 400,
     place: 'Muay Thai Garage', area: 'Sathorn', level: 'Beginner', indoor: true, going: 14, solo: 6, rating: 4.8, reviews: 77, km: 3.3,
-    about: 'Stance, punches and kicks. Gloves and wraps provided.' },
+    about: 'เรียนมวยไทยพื้นฐาน ท่ายืน หมัด และเตะ มีนวมและผ้าพันมือให้' },
   { id: 'pads', title: 'Pad Work & Conditioning', cat: 'Muay Thai', club: 'mtg', date: '2026-10-21', time: '18:00', mins: 75, price: 450,
     place: 'Muay Thai Garage', area: 'Sathorn', level: 'Intermediate', indoor: true, going: 12, solo: 3, rating: 4.7, reviews: 40, km: 3.3,
-    about: 'Rounds on the pads with trainers, then a conditioning finisher.' },
+    about: 'ซ้อมเตะและต่อยเป้ากับเทรนเนอร์ ปิดท้ายด้วยฝึกความแข็งแรง' },
   { id: 'womenmt', title: 'Women’s Muay Thai', cat: 'Muay Thai', club: 'elc', date: '2026-10-24', time: '11:00', mins: 60, price: 350,
     place: 'Eight Limbs Gym', area: 'Ratchada', level: 'Beginner', indoor: true, going: 16, solo: 7, rating: 4.9, reviews: 35, km: 7.4,
-    about: 'A women-only class with female coaches.' },
+    about: 'คลาสมวยไทยสำหรับผู้หญิงมือใหม่ สอนโดยโค้ชผู้หญิง' },
   { id: 'fightnight', title: 'Fight Night Outing', cat: 'Muay Thai', club: 'elc', date: '2026-10-30', time: '18:00', mins: 240, price: 1500,
     place: 'Rajadamnern Stadium', area: 'Phra Nakhon', level: 'All levels', indoor: true, going: 24, solo: 5, rating: 4.6, reviews: 15, km: 7.0,
-    about: 'Watch live bouts with a coach explaining the action.' },
+    about: 'ชมการแข่งขันมวยไทยที่ราชดำเนิน พร้อมโค้ชช่วยอธิบายจังหวะการชก' },
   { id: 'shadow', title: 'Shadowboxing in the Park', cat: 'Muay Thai', club: 'elc', date: '2026-11-08', time: '07:00', mins: 60, price: 0,
     place: 'Chatuchak Park', area: 'Chatuchak', level: 'Beginner', indoor: false, going: 30, solo: 9, rating: 4.5, reviews: 20, km: 8.1,
-    about: 'A free outdoor class. No equipment needed.' },
+    about: 'ฝึกชกมวยลมกลางแจ้งในสวน ฟรีและไม่ต้องใช้อุปกรณ์' },
 
   // Padel
   { id: 'padel', title: 'Padel Taster Session', cat: 'Padel', club: 'pdl', date: '2026-10-18', time: '16:00', mins: 90, price: 500,
     place: 'Padel Social Courts', area: 'On Nut', level: 'Beginner', indoor: true, going: 8, solo: 4, rating: 4.7, reviews: 44, km: 7.8,
-    about: 'Learn the rules and basic shots. Rackets included.' },
+    about: 'เรียนกติกาและการตีพาเดลเบื้องต้น มีไม้ให้ยืม' },
   { id: 'padel2', title: 'Padel Mixer Night', cat: 'Padel', club: 'pdl', date: '2026-10-23', time: '19:00', mins: 120, price: 600,
     place: 'Padel Social Courts', area: 'On Nut', level: 'All levels', indoor: true, going: 16, solo: 8, rating: 4.8, reviews: 31, km: 7.8,
-    about: 'Rotating doubles, so you meet someone new every game.' },
+    about: 'เล่นพาเดลประเภทคู่แบบสลับคู่ในแต่ละเกม เหมาะกับการพบเพื่อนใหม่' },
   { id: 'americano', title: 'Padel Americano', cat: 'Padel', club: 'pdl', date: '2026-11-01', time: '15:00', mins: 150, price: 550,
     place: 'Padel Social Courts', area: 'On Nut', level: 'Intermediate', indoor: true, going: 16, solo: 4, rating: 4.6, reviews: 13, km: 7.8,
-    about: 'A points-based mini tournament with changing partners.' },
+    about: 'แข่งพาเดลแบบ Americano เก็บคะแนนและเปลี่ยนคู่ระหว่างเกม' },
 
   // Dance
   { id: 'hiphop', title: 'Hip-Hop Beginner Class', cat: 'Dance', club: 'dnc', date: '2026-10-20', time: '19:30', mins: 60, price: 300,
     place: 'Dance Hall 22', area: 'Siam', level: 'Beginner', indoor: true, going: 18, solo: 7, rating: 4.6, reviews: 38, km: 1.5,
-    about: 'Learn grooves and a short routine. No experience needed.' },
+    about: 'เรียนฮิปฮอปพื้นฐานและท่าเต้นชุดสั้น ๆ ไม่ต้องมีประสบการณ์' },
   { id: 'salsa', title: 'Salsa Social Night', cat: 'Dance', club: 'grv', date: '2026-10-23', time: '20:00', mins: 150, price: 250,
     place: 'The Ballroom Ari', area: 'Ari', level: 'All levels', indoor: true, going: 40, solo: 15, rating: 4.7, reviews: 56, km: 6.1,
-    about: 'A 45-minute lesson, then open dancing. Come solo, everyone rotates.' },
+    about: 'เรียนซัลซ่า 45 นาที แล้วเต้นอิสระและสลับคู่กัน' },
   { id: 'kpop', title: 'K-Pop Dance Cover', cat: 'Dance', club: 'dnc', date: '2026-10-24', time: '13:00', mins: 90, price: 350,
     place: 'Dance Hall 22', area: 'Siam', level: 'All levels', indoor: true, going: 22, solo: 9, rating: 4.8, reviews: 61, km: 1.5,
-    about: 'Learn this month’s chart-topping choreography and film it.' },
-  { id: 'dancefit', title: 'Sunset Dance Fitness', cat: 'Dance', club: 'grv', date: '2026-11-01', time: '17:30', mins: 60, price: 0,
-    place: 'Benjakitti Park', area: 'Asok', level: 'Beginner', indoor: false, going: 50, solo: 14, rating: 4.5, reviews: 29, km: 3.4,
-    about: 'A free, high-energy dance workout on the park plaza.' },
+    about: 'เรียนท่าเต้นเพลง K-pop แล้วถ่ายคลิปเต้นด้วยกัน' },
+  { id: 'dancefit', title: 'Aerobic dance', cat: 'Dance', club: 'grv', date: '2026-11-01', time: '17:30', mins: 60, price: 0,
+    place: 'Lumpini Park', area: 'Silom', level: 'Beginner', indoor: false, going: 50, solo: 14, rating: 4.5, reviews: 29, km: 2.1,
+    about: 'เต้นออกกำลังกายตามเพลงแบบกลุ่มที่สวน เข้าร่วมได้ฟรี' },
 
   // Meditation
   { id: 'medi', title: 'Morning Meditation in the Park', cat: 'Meditation', club: 'mnd', date: '2026-10-18', time: '06:30', mins: 45, price: 0,
     place: 'Lumpini Park', area: 'Silom', level: 'Beginner', indoor: false, going: 25, solo: 12, rating: 4.7, reviews: 64, km: 2.1,
-    about: 'A guided sit by the lake before the city wakes up.' },
+    about: 'นั่งสมาธิแบบมีผู้นำกิจกรรมริมทะเลสาบในช่วงเช้า' },
   { id: 'soundbath', title: 'Sound Bath Evening', cat: 'Meditation', club: 'ssh', date: '2026-10-22', time: '19:00', mins: 75, price: 550,
     place: 'Sound & Stillness Studio', area: 'Phrom Phong', level: 'All levels', indoor: true, going: 14, solo: 6, rating: 4.9, reviews: 47, km: 3.0,
-    about: 'Lie back while singing bowls and gongs do the work.' },
+    about: 'นอนฟังเสียงขันทิเบตและฆ้องในคลาส Sound Bath เพื่อผ่อนคลาย' },
   { id: 'retreat', title: 'Temple Meditation Day', cat: 'Meditation', club: 'mnd', date: '2026-11-07', time: '08:00', mins: 420, price: 0,
     place: 'Wat Mahathat', area: 'Phra Nakhon', level: 'Beginner', indoor: true, going: 30, solo: 14, rating: 4.9, reviews: 40, km: 7.2,
-    about: 'A full day of guided sitting and walking meditation. Wear white. Donation-based.' },
+    about: 'ฝึกนั่งสมาธิและเดินจงกรมเต็มวันที่วัด แต่งชุดขาว บริจาคตามศรัทธา' },
   { id: 'breathe', title: 'Lunchtime Breathwork', cat: 'Meditation', club: 'ssh', date: '2026-10-24', time: '12:00', mins: 30, price: 200,
     place: 'Sound & Stillness Studio', area: 'Phrom Phong', level: 'Beginner', indoor: true, going: 10, solo: 5, rating: 4.6, reviews: 15, km: 3.0,
-    about: 'A 30-minute reset to calm a busy mind.' },
+    about: 'ฝึกหายใจ 30 นาที ในช่วงพักกลางวัน เพื่อผ่อนคลาย' },
 
   // Paddle (SUP & kayak)
   { id: 'sup', title: 'Sunrise SUP on the River', cat: 'Paddle', club: 'sup', date: '2026-10-18', time: '06:00', mins: 120, price: 900,
     place: 'Khlong San Pier', area: 'Khlong San', level: 'Beginner', indoor: false, going: 10, solo: 3, rating: 4.8, reviews: 33, km: 4.5,
-    about: 'Stand-up paddle past temples at dawn. Board and life vest included.' },
+    about: 'พายซัพบอร์ดชมวัดริมเจ้าพระยาตอนเช้า มีบอร์ดและเสื้อชูชีพให้' },
   { id: 'kayak', title: 'Klong Kayak Tour', cat: 'Paddle', club: 'kyk', date: '2026-10-25', time: '07:00', mins: 150, price: 800,
     place: 'Khlong Bang Luang', area: 'Phasi Charoen', level: 'Beginner', indoor: false, going: 12, solo: 4, rating: 4.8, reviews: 41, km: 8.6,
-    about: 'Paddle through old canal communities and stop at a floating cafe.' },
+    about: 'พายคายัคผ่านชุมชนริมคลองบางหลวง แล้วแวะคาเฟ่ริมน้ำ' },
   { id: 'supyoga', title: 'SUP Yoga', cat: 'Paddle', club: 'sup', date: '2026-11-01', time: '07:30', mins: 90, price: 1000,
     place: 'Suan Luang Rama IX Lake', area: 'Prawet', level: 'Intermediate', indoor: false, going: 8, solo: 2, rating: 4.7, reviews: 12, km: 9.5,
-    about: 'Yoga poses on a floating board. Expect to get wet.' },
+    about: 'ฝึกโยคะบนซัพบอร์ดในน้ำ เน้นการทรงตัวและท่าพื้นฐาน' },
   { id: 'mangkayak', title: 'Mangrove Kayak Day Trip', cat: 'Paddle', club: 'kyk', date: '2026-11-07', time: '07:00', mins: 480, price: 1500,
     place: 'Samut Songkhram Mangroves', area: 'Samut Songkhram', level: 'All levels', indoor: false, going: 14, solo: 3, rating: 4.9, reviews: 9, km: 75,
-    about: 'Kayak the mangroves, then visit the Maeklong railway market.' },
+    about: 'พายคายัคในป่าชายเลนสมุทรสงคราม แล้วแวะตลาดร่มหุบ' },
 ];
 
 // ── FRIENDS — เพื่อนที่พบจากรายชื่อติดต่อ (going = id กิจกรรมที่เพื่อนจะไป)
@@ -787,6 +798,30 @@ const PROMOS = {
 const SERVICE_FEE = 10; // บาทต่อบัตร (กิจกรรมฟรีไม่มีค่าบริการ)
 const MAX_TICKETS = 4;
 const DECLINED_CARD = '4000000000000002'; // เลขบัตรทดสอบที่จะถูกปฏิเสธ
+
+// ── QUIZ — คำถาม personalize ตอนสมัคร (แก้ข้อความ/ตัวเลือกได้ที่นี่)
+// key = ช่องที่เก็บคำตอบใน S.prefs · multi = เลือกได้หลายข้อ · options = [ค่า, ข้อความ, คำอธิบาย]
+const QUIZ = [
+  { key: 'cats', multi: true, title: 'What would you like to try?', sub: 'เลือกได้หลายอย่าง เราจะแสดงหมวดเหล่านี้ก่อน',
+    options: CATEGORIES.map((c) => [c, c]) },
+  { key: 'level', title: 'How experienced are you?', sub: 'เพื่อแนะนำกิจกรรมที่ระดับเหมาะกับคุณ',
+    options: [['new', 'New to this', 'เพิ่งเริ่มต้น'], ['some', 'Done it a few times', 'พอรู้พื้นฐานแล้ว'], ['regular', 'I train regularly', 'พร้อมลองคลาสที่ยากขึ้น']] },
+  { key: 'time', multi: true, title: 'When are you usually free?', sub: 'เลือกได้มากกว่า 1 ข้อ',
+    options: [['morning', 'Mornings', 'ก่อน 10:00 น.'], ['evening', 'Evenings', 'ตั้งแต่ 17:00 น.'], ['weekend', 'Weekends', 'เสาร์–อาทิตย์']] },
+  { key: 'budget', title: 'Budget per activity', sub: 'กิจกรรมที่แนะนำจะไม่เกินงบนี้',
+    options: [['0', 'Free only', ''], ['300', 'Up to ฿300', ''], ['600', 'Up to ฿600', ''], ['any', 'No limit', '']] },
+  { key: 'style', title: 'How do you like to go?', sub: 'เราจะเน้นกิจกรรมที่เข้ากับสไตล์คุณ',
+    options: [['solo', 'On my own', 'มีคนมาคนเดียวเหมือนกัน'], ['meet', 'Meet new people', 'คลับและกลุ่มที่เน้นเจอเพื่อนใหม่'], ['friends', 'With my friends', 'กิจกรรมที่เพื่อนของคุณไป']] },
+];
+
+// ── TOUR — ทัวร์แนะนำการใช้งานหน้า Home ครั้งแรก (sel = จุดที่ไฮไลต์)
+const TOUR = [
+  { sel: '[data-tour="picks"]', title: 'Personalized for you', text: 'กิจกรรมที่ตรงกับคำตอบของคุณ แก้คำตอบได้ทุกเมื่อในหน้า Settings' },
+  { sel: '[data-tour="search"]', title: 'Search everything', text: 'ค้นหากิจกรรม สถานที่ และคลับ ลองพิมพ์ “yoga” หรือ “Lumpini” ดูสิ' },
+  { sel: '[data-tour="cats"]', title: 'Browse by category', text: 'กดหมวดเพื่อกรองกิจกรรม หมวดที่คุณเลือกไว้จะขึ้นก่อน' },
+  { sel: '#nav [data-tab="schedule"]', title: 'Your plan lives here', text: 'การจอง ตั๋ว เส้นทาง และแชทกลุ่ม อยู่ที่ My Schedule ทั้งหมด' },
+  { sel: '#nav [data-tab="community"]', title: 'Find people to go with', text: 'โพสต์หาเพื่อนไปด้วย เข้าร่วมแผนของคนอื่น และติดตามคลับ' },
+];
 
 // ── ตัวเลือกการเดินทาง (เวลา/ค่าใช้จ่ายคำนวณจาก km ของกิจกรรม)
 const TRAVEL_MODES = [
@@ -876,6 +911,22 @@ const indoorAlternatives = (id, n = 3) => {
 // 3. STATE — ค่าที่เปลี่ยนตามการใช้งาน (อ้างกิจกรรมด้วย id เท่านั้น)
 // ════════════════════════════════════════════════════════════
 
+// ── เก็บค่าในเบราว์เซอร์ (ถ้าเบราว์เซอร์ไม่อนุญาต แอปยังทำงานได้ปกติ)
+function lsGet(k, d) {
+  try {
+    const v = localStorage.getItem(k);
+    return v == null ? d : JSON.parse(v);
+  } catch (e) {
+    return d;
+  }
+}
+function lsSet(k, v) {
+  try {
+    localStorage.setItem(k, JSON.stringify(v));
+  } catch (e) {}
+}
+USER.name = lsGet('vybe.name', USER.name);
+
 const S = {
   // แผนของฉัน: status = 'Booked' | 'Unpaid' | 'Done'  · ref = เลขการจอง (มีเมื่อจองสำเร็จ)
   plan: [
@@ -938,7 +989,15 @@ const S = {
   cq: '',
   ps: '',
   att: null,
-  myPhoto: '', // รูปโปรไฟล์ที่ผู้ใช้เลือกในแอป
+  myPhoto: (() => { try { return localStorage.getItem('vybe.myPhoto') || ''; } catch (e) { return ''; } })(), // รูปโปรไฟล์ที่ผู้ใช้เลือก (จำไว้ในเครื่องนี้)
+  // คำตอบ personalize (จำไว้ในเบราว์เซอร์เครื่องนี้)
+  prefs: lsGet('vybe.prefs', { cats: [], level: '', time: [], budget: '', style: '' }),
+  qstep: 0,
+  quizFrom: null,
+  tourStep: null, // ลำดับทัวร์ที่กำลังแสดง (null = ไม่แสดง)
+  toured: lsGet('vybe.toured', false),
+  onboarded: lsGet('vybe.onboarded', false), // ผ่านขั้นตอนผู้ใช้ใหม่แล้ว (ตั้งค่าโปรไฟล์ · คำถาม · ซิงก์รายชื่อ)
+  loggedIn: lsGet('vybe.loggedIn', false), // ยังเข้าสู่ระบบอยู่ เปิดแอปครั้งต่อไปไป Home ได้เลย
   etab: 'details', // แท็บในหน้ารายละเอียดกิจกรรม
   postType: 'buddy',
   addPlan: true,
@@ -958,6 +1017,7 @@ const S = {
 
 // หน้าที่แสดงเต็มจอ (ไม่มีแถบเมนูล่าง)
 const FULL = [
+  'setup', 'quiz',
   'signup', 'otp', 'sync', 'friends', 'event', 'notif', 'replan', 'recap', 'compare', 'payment',
   'newpost', 'club', 'settings', 'route', 'chat', 'buddypost', 'postdetail', 'saved', 'calendar',
   'inbox', 'payqr', 'processing', 'receipt', 'ticket', 'payments',
@@ -1086,7 +1146,9 @@ const empty = (t) => `<div class="p mu" style="margin-top:20px;text-align:center
 // รูปโปรไฟล์คน: รูปจาก IMAGES.people (หรือรูปที่ผู้ใช้เลือกเอง) ถ้าไม่มี = วงกลมสี
 const personImg = (name) => {
   const key = !name || name == USER.name ? 'me' : name;
-  return key == 'me' ? S.myPhoto || IMAGES.people.me : (IMAGES.people || {})[key];
+  const ppl = IMAGES.people || {};
+  // รูปของผู้ใช้: รูปที่เลือกในแอป → people.me → people['ชื่อผู้ใช้'] (ใส่แบบไหนก็ขึ้นทุกหน้า)
+  return key == 'me' ? S.myPhoto || ppl.me || ppl[USER.name] || '' : ppl[key] || '';
 };
 const avatar = (c, s = 40, name) => {
   const src = name && personImg(name);
@@ -1144,8 +1206,50 @@ const actMini = (id, label) => {
   return `<button data-go="event:${id}" class="card row" style="width:100%;text-align:left;gap:10px">${imgSlot(id, 60, 14, label + ' · ' + a.title)}<span><b style="font-size:13px;display:block">${a.title}</b><span class="mu" style="font-size:11px">${a.when}</span><b style="display:block;color:#2A4DA8;font-size:13px">${a.priceLabel} · View activity ›</b></span></button>`;
 };
 
+// ── PERSONALIZE: ให้คะแนนกิจกรรมตามคำตอบ แล้วบอกเหตุผลสั้น ๆ
+const hasPrefs = () => {
+  const P = S.prefs;
+  return !!(P.cats.length || P.level || P.time.length || P.budget || P.style);
+};
+// loose = โหมดผ่อนเกณฑ์ (ไม่ตัดเรื่องงบ/ระดับ) ใช้เติมเมื่อกิจกรรมที่ตรงทุกข้อมีน้อย
+const prefScore = (a, loose) => {
+  const P = S.prefs,
+    why = [];
+  let s = a.rating / 10;
+  if (P.cats.length) {
+    if (P.cats.includes(a.cat)) (s += 3), why.push(a.cat);
+    else s -= 2;
+  }
+  if (P.level == 'new') a.beginner ? ((s += 1), why.push('Beginner friendly')) : loose ? 0 : (s -= 1.5);
+  if (P.level == 'regular' && /Intermediate|Advanced/.test(a.level)) (s += 1), why.push(a.level);
+  if (P.time.length) {
+    const h = +a.time.slice(0, 2),
+      d = toDate(a.date).getDay(),
+      slot = [h < 10 && 'morning', h >= 17 && 'evening', (d == 0 || d == 6) && 'weekend'].filter(Boolean),
+      hit = P.time.find((t) => slot.includes(t));
+    if (hit) (s += 1), why.push({ morning: 'Morning', evening: 'Evening', weekend: 'Weekend' }[hit]);
+  }
+  if (P.budget && P.budget != 'any') {
+    if (a.price <= +P.budget) (s += 1), why.push(a.price ? 'Under ฿' + P.budget : 'Free');
+    else if (loose) (s -= (a.price - +P.budget) / 2000), why.push(a.priceLabel); // เกินงบน้อยกว่าขึ้นก่อน
+    else s -= 3;
+  }
+  if (P.style == 'solo' && a.solo >= 3) (s += 0.5), why.push('Solo-friendly');
+  if (P.style == 'meet' && a.byClub) (s += 0.5), why.push('Social club');
+  if (P.style == 'friends' && FRIENDS.some((f) => f.going == a.id)) (s += 1), why.push('Friends going');
+  return { s, why: why.slice(0, 3) };
+};
+const prefSummary = () => {
+  const P = S.prefs,
+    lab = (k, v) => ((QUIZ.find((q) => q.key == k).options.find((o) => o[0] == v) || [])[1] || '');
+  return [P.cats.slice(0, 3).join(', ') + (P.cats.length > 3 ? ' +' + (P.cats.length - 3) : ''), lab('level', P.level), P.time.map((t) => lab('time', t)).join(', '), lab('budget', P.budget), lab('style', P.style)]
+    .filter(Boolean)
+    .join(' · ');
+};
+const savePrefs = () => lsSet('vybe.prefs', S.prefs);
+
 const catChips = () =>
-  ['All', ...CATEGORIES]
+  ['All', ...S.prefs.cats.filter((c) => CATEGORIES.includes(c)), ...CATEGORIES.filter((c) => !S.prefs.cats.includes(c))]
     .map((c) => `<button data-a="cat:${c}" class="chip ${S.cat == c ? 'on' : ''}">${c}</button>`)
     .join('');
 
@@ -1236,8 +1340,8 @@ const postCard = (p, compact) => {
             : S.joinReq[p.id] == 'pending'
               ? `<button disabled class="lb" style="flex:1;height:38px;border-radius:19px;font-weight:700;font-size:13px;opacity:.7">Requested…</button>`
               : `<button data-a="pj:${p.id}" class="bb" style="flex:1;height:38px;border-radius:19px;font-weight:700;font-size:13px">Join</button>`
-      }<button data-go="chat:dm~${p.name}~${p.act}" class="y" style="flex:1;height:38px;border-radius:19px;font-weight:700;font-size:13px">Chat</button></div>`;
-  return `<div style="margin:12px 20px 0;border:1.5px solid var(--bd);border-radius:22px;padding:12px"><div class="row">${avatar(p.color, 36, p.name)}<div style="flex:1"><b>${p.name}</b><div class="mu" style="font-size:11px">${p.time}</div></div><span class="tag">${p.type == 'buddy' ? 'Looking for buddy' : 'Shared'}</span></div>
+      }<button data-go="chat:dm~${p.name}~${p.act}" style="background:var(--ys);color:var(--yt);flex:1;height:38px;border-radius:19px;font-weight:700;font-size:13px">Chat</button></div>`;
+  return `<div style="margin:12px 20px 0;border:1.5px solid var(--bd);border-radius:22px;padding:12px"><div class="row">${p.mine ? `<button data-tab="profile" class="row" style="flex:1;gap:8px;text-align:left">${avatar(p.color, 36, p.name)}<span><b>${p.name}</b><span class="mu" style="font-size:11px;display:block">${p.time}</span></span></button>` : `${avatar(p.color, 36, p.name)}<div style="flex:1"><b>${p.name}</b><div class="mu" style="font-size:11px">${p.time}</div></div>`}<span class="tag">${p.type == 'buddy' ? 'Looking for buddy' : 'Shared'}</span></div>
 <div style="margin:8px 0;font-size:14px">${p.text}</div>${compact ? '' : actMini(p.act, 'COMMUNITY › attached activity')}${actions}</div>`;
 };
 
@@ -1407,57 +1511,107 @@ const SC = {
 <input class="inp" aria-label="Phone number" placeholder="08X XXX XXXX" inputmode="tel"></div>
 <div style="margin:12px 28px 0"><button class="btn" data-go="otp" style="background:var(--b);color:#fff">Continue</button></div>
 <div class="mu" style="margin:16px 0;text-align:center;font-size:12px">or</div>
-<div style="margin:0 28px"><button class="btn gr" data-go="sync">Continue with Google</button><button class="btn gr" data-go="sync" style="margin-top:10px">Continue with Apple</button></div>
+<div style="margin:0 28px"><button class="btn gr" data-a="auth">Continue with Google</button><button class="btn gr" data-a="auth" style="margin-top:10px">Continue with Apple</button></div>
 <div class="mu" style="margin:22px 40px 0;text-align:center;font-size:11px">By clicking continue, you agree to our Terms of Service and Privacy Policy</div>`,
   otp: () =>
     back +
     `<h1 class="p" style="font-size:28px;font-weight:800;margin-top:12px;line-height:1.2">Verify your<br>phone number</h1><div class="p mu" style="font-size:13px;margin-top:8px">We sent a 6-digit code to ${USER.phone}</div>
 <div class="p row" style="margin-top:24px;justify-content:space-between">${[4, 2, 7, 1, 9, 0].map((d) => `<input class="inp" aria-label="OTP digit" maxlength="1" value="${d}" style="width:46px;height:56px;text-align:center;font-size:22px;font-weight:700;padding:0">`).join('')}</div>
 <div class="p mu" style="font-size:12px;margin-top:12px">Resend code in 0:30</div>
-<div style="margin:28px 20px 0"><button class="btn y" data-go="sync">Verify and continue</button></div>`,
-  sync: () => `<div style="padding-top:60px;display:flex;justify-content:center">${imgSlot('misc:sync', 170, 26, 'SYNC CONTACTS › top picture')}</div>
+<div style="margin:28px 20px 0"><button class="btn y" data-a="auth">Verify and continue</button></div>`,
+  sync: () => `<div style="padding-top:60px;display:flex;justify-content:center"></div>
 <h1 style="margin:20px 24px 0;font-size:26px;font-weight:800;line-height:1.2;text-align:center">Find friends on Vybe<br>from your contacts</h1><div style="margin:8px 28px 0">${[
-    ['See what your friends are going to', 'Makes it easy to invite each other'],
-    ['Get matched with friends who like the same things', 'Based on matching registered numbers'],
-    ['We never message anyone for you', 'Unless you tap Invite yourself'],
+    ['ดูว่าเพื่อนของคุณกำลังจะไปงานหรือกิจกรรมอะไรบ้าง', 'ช่วยให้คุณชวนกันไปได้ง่ายขึ้น'],
+    ['แนะนำเพื่อนที่สนใจเหมือนกัน', 'จากเบอร์ที่ลงทะเบียนตรงกัน'],
+    ['เราจะไม่ส่งข้อความหาใครแทนคุณ', 'ถ้าคุณไม่กดเชิญเอง'],
   ]
     .map(
       (p) =>
         `<div class="row" style="align-items:flex-start;margin-top:12px"><span style="width:28px;height:28px;border-radius:14px;background:var(--ys);flex:none;text-align:center;line-height:28px;font-weight:700">✓</span><div><b style="font-size:14px">${p[0]}</b><div class="mu" style="font-size:12px">${p[1]}</div></div></div>`,
     )
     .join('')}</div>
-<div class="lb" style="margin:16px 24px 0;border-radius:16px;padding:10px 14px;font-size:11px"><b style="font-size:12px">You’re in control</b><br><span class="mu">Sync or skip. You can turn it off anytime in Settings.</span></div>
-<div style="margin:16px 24px 0"><button class="btn y" data-go="friends">Allow contact access</button><button data-go="home" style="width:100%;margin-top:10px;font-weight:600;padding:8px">Not now</button></div>`,
+<div class="lb" style="margin:16px 24px 0;border-radius:16px;padding:10px 14px;font-size:11px"><b style="font-size:12px">คุณเป็นคนควบคุมทุกอย่างได้</b><br><span class="mu">เลือกซิงค์รายชื่อผู้ติดต่อหรือข้ามขั้นตอนนี้ก็ได้ และคุณสามารถปิดการซิงค์ได้ทุกเมื่อในการตั้งค่า</span></div>
+<div style="margin:16px 24px 0"><button class="btn y" data-go="friends">Allow contact access</button><button data-a="onbdone" style="width:100%;margin-top:10px;font-weight:600;padding:8px">Not now</button></div>`,
   friends: () =>
     hdr('Contacts', 'Your friends') +
     `<div class="p mu" style="font-size:13px;margin-top:6px">Found ${FRIENDS.length} people on Vybe</div>` +
     FRIENDS.map((f, i) => friendRow(f, i, false)).join('') +
-    `<div style="margin:20px 20px 0"><button class="btn y" data-go="home">Start using Vybe</button></div>`,
+    `<div style="margin:20px 20px 0"><button class="btn y" data-a="onbdone">Start using Vybe</button></div>`,
 
   // ── HOME & DISCOVERY — หน้าแรก ค้นหา เปรียบเทียบ รายการที่บันทึก
+  // ── NEW USER — ตั้งค่าโปรไฟล์ และคำถาม personalize
+  setup: () => {
+    const img = personImg(USER.name);
+    return (
+      back +
+      `<h1 class="p" style="font-size:28px;font-weight:800;margin-top:12px;line-height:1.2">Set up your profile</h1><div class="p mu" style="font-size:13px;margin-top:6px">เพื่อน ๆ จะเห็นชื่อและรูปนี้บน Vybe</div>
+<div style="display:flex;justify-content:center;margin-top:28px"><label for="photo" aria-label="Add profile photo" style="width:112px;height:112px;position:relative;cursor:pointer;display:block"><span style="width:112px;height:112px;border-radius:56px;background:var(--ys);overflow:hidden;display:flex;align-items:center;justify-content:center">${img ? `<img src="${img}" alt="${USER.name}" style="width:112px;height:112px;object-fit:cover">` : '<svg viewBox="0 0 120 110" width="112" height="112" aria-hidden="true"><circle cx="60" cy="40" r="22" fill="#10328F"/><path d="M20 110Q60 50 100 110Z" fill="#5B88D6"/></svg>'}</span><span style="position:absolute;right:0;bottom:0;width:34px;height:34px;border-radius:17px;background:var(--b);border:3px solid #fff;color:#fff;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></span><input id="photo" type="file" accept="image/*" hidden></label></div>
+<div class="mu" style="text-align:center;font-size:12px;margin-top:10px">แตะเพื่อเพิ่มรูป (ไม่ใส่ก็ได้)</div>
+<div class="p" style="margin-top:22px"><label for="nm" style="font-size:13px;font-weight:600">Your name</label><input id="nm" class="inp" value="${USER.name}" maxlength="30" autocomplete="name" style="margin-top:6px;width:100%;box-sizing:border-box"></div>
+<div style="margin:28px 20px 0"><button class="btn y" data-a="setupdone">Continue</button></div>`
+    );
+  },
+  quiz: () => {
+    const q = QUIZ[S.qstep],
+      val = S.prefs[q.key],
+      on = (v) => (q.multi ? val.includes(v) : val == v),
+      last = S.qstep == QUIZ.length - 1,
+      prog = QUIZ.map((_, i) => `<span style="flex:1;height:6px;border-radius:3px;background:${i <= S.qstep ? 'var(--y)' : 'var(--l)'}"></span>`).join('');
+    const opts =
+      q.key == 'cats'
+        ? `<div class="p" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:18px">${q.options.map((o) => `<button data-a="qpick:${q.key}:${o[0]}" aria-pressed="${on(o[0])}" class="chip ${on(o[0]) ? 'on' : ''}" style="padding:10px 16px;font-size:14px">${on(o[0]) ? '✓ ' : ''}${o[1]}</button>`).join('')}</div>`
+        : `<div class="p" style="margin-top:12px">${q.options
+            .map(
+              (o) =>
+                `<button data-a="qpick:${q.key}:${o[0]}" aria-pressed="${on(o[0])}" class="opt ${on(o[0]) ? 'on' : ''}" style="min-height:60px"><span style="flex:1"><b style="font-size:15px">${o[1]}</b>${o[2] ? `<span class="mu" style="display:block;font-size:12px">${o[2]}</span>` : ''}</span>${q.multi ? `<span style="width:22px;height:22px;border-radius:6px;border:2px solid ${on(o[0]) ? 'var(--b)' : '#B9C9EE'};background:${on(o[0]) ? 'var(--b)' : '#fff'};color:#fff;font-size:13px;text-align:center;line-height:18px;flex:none;box-sizing:border-box">${on(o[0]) ? '✓' : ''}</span>` : '<span class="rad"></span>'}</button>`,
+            )
+            .join('')}</div>`;
+    const count = q.multi && val.length ? `<div class="mu" style="font-size:12px;text-align:center;margin-bottom:8px">${val.length} selected</div>` : '';
+    return `<div class="p row" style="padding-top:24px;gap:14px"><button data-a="qback" aria-label="Back" style="width:40px;height:40px;border-radius:20px;background:var(--l);font-size:22px;flex:none">‹</button><div class="row" style="flex:1;gap:6px" aria-label="Question ${S.qstep + 1} of ${QUIZ.length}">${prog}</div><button data-a="qskip" style="font-weight:600;color:var(--mu);flex:none">Skip</button></div>
+<div class="p mu" style="font-size:12px;font-weight:600;margin-top:22px">${S.qstep + 1} of ${QUIZ.length}</div>
+<h1 class="p" style="font-size:26px;font-weight:800;line-height:1.2;margin-top:4px">${q.title}</h1><div class="p mu" style="font-size:13px;margin-top:6px">${q.sub}</div>
+${opts}
+<div style="position:sticky;bottom:0;background:#fff;padding:14px 20px 18px;margin-top:20px">${count}<button data-a="qnext" class="btn y">${last ? (S.quizFrom ? 'Save' : 'Finish') : 'Continue'}</button></div>`;
+  },
+
   home: () => {
+    // หน้า Home: 1) Personalized for you  2) From clubs you follow  3) Upcoming activities
     const f = UPCOMING.filter((i) => S.cat == 'All' || A[i].cat == S.cat),
-      upcoming = f.slice(0, 8),
-      recs = f
-        .slice()
-        .sort((x, y) => A[y].rating - A[x].rating)
-        .filter((i) => !upcoming.includes(i) || f.length < 10)
-        .slice(0, 5),
-      fromClubs = f.filter((i) => S.following[A[i].club]).slice(0, 8);
+      upcoming = f.slice(0, 5), // เรียงวัน/เวลา จาก UPCOMING (ไม่เรียงตาม rating)
+      // ถ้าเลือกหมวดไว้ใน personalized ให้แนะนำเฉพาะหมวดที่เลือกจริง ๆ
+      personalizedPool = f.filter((i) => !S.prefs.cats.length || S.prefs.cats.includes(A[i].cat)),
+      fromClubs = f.filter((i) => S.following[A[i].club]).slice(0, 8),
+      byScore = (loose) =>
+        personalizedPool
+          .map((i) => [i, prefScore(A[i], loose)])
+          .filter((x) => x[1].s > 1)
+          .sort((x, y) => y[1].s - x[1].s);
+
+    // ใช้คำตอบจาก onboarding / Edit preferences แบบเดิม และเติมตัวเลือกใกล้เคียงเมื่อมีน้อย
+    let picks = hasPrefs() ? byScore(false).slice(0, 8) : [];
+    const exact = picks.length;
+    if (hasPrefs() && exact < 4)
+      picks = picks.concat(byScore(true).filter((x) => !picks.some((p) => p[0] == x[0]))).slice(0, 8);
+
+    const picksHtml = hasPrefs()
+      ? picks.length
+        ? `<div data-tour="picks">${section('Personalized for you', `<button data-a="editprefs" style="font-size:13px;font-weight:500">Edit ›</button>`)}${exact < picks.length ? `<div class="p mu" style="font-size:12px;margin-top:2px">${exact ? 'มีกิจกรรมที่ตรงทุกข้อ ' + exact + ' รายการ ที่เหลือเป็นกิจกรรมใกล้เคียง' : 'ยังไม่มีกิจกรรมที่ตรงทุกข้อ นี่คือกิจกรรมที่ใกล้เคียงที่สุด'}</div>` : ''}<div class="p row" style="margin-top:10px;overflow-x:auto;align-items:stretch">${picks.map(([i, r]) => actTile(i, r.why.join(' · ') || A[i].day)).join('')}</div></div>`
+        : `<div data-tour="picks">${section('Personalized for you', `<button data-a="editprefs" style="font-size:13px;font-weight:500">Edit ›</button>`)}<div class="p mu" style="font-size:13px;margin-top:4px">ยังไม่มีกิจกรรมในหมวดนี้ที่ตรงกับคำตอบ ลองเลือกหมวด All หรือแก้คำตอบ</div></div>`
+      : `<div data-tour="picks" style="margin:16px 20px 0;background:var(--ys);border-radius:20px;padding:14px 16px" class="row"><span style="flex:1"><b style="font-size:15px">Get picks made for you</b><span style="display:block;font-size:12px;color:var(--yt)">ตอบคำถามสั้น ๆ 5 ข้อ</span></span><button data-a="editprefs" class="y" style="height:40px;padding:0 16px;border-radius:12px;font-weight:700">Start</button></div>`;
+
     return (
       `<div class="p row" style="padding-top:26px;justify-content:space-between"><span class="row" style="gap:6px">${logo(38)}</span>${iconBtn('data-go="notif"', 'Notifications', ICON.bell() + badge(unreadCount()))}</div>
 <div class="p mu" style="font-size:13px;margin-top:6px">Good morning,</div>
 <div class="p" style="font-size:28px;font-weight:600">${USER.name}</div>
-<button data-go="discover" aria-label="Search" class="lb row" style="width:calc(100% - 40px);text-align:left;margin:12px 20px 0;height:46px;border-radius:23px;border:1.5px solid var(--bd);padding:0 5px 0 16px;font-size:13px;color:var(--mu);justify-content:space-between">Search activities, places, clubs…<span class="bb" style="width:36px;height:36px;border-radius:18px;display:flex;align-items:center;justify-content:center">${ICON.search('#fff')}</span></button><div class="p row" style="margin-top:12px;overflow-x:auto">${catChips()}</div>` +
+<button data-go="discover" data-tour="search" aria-label="Search" class="lb row" style="width:calc(100% - 40px);text-align:left;margin:12px 20px 0;height:46px;border-radius:23px;border:1.5px solid var(--bd);padding:0 5px 0 16px;font-size:13px;color:var(--mu);justify-content:space-between">Search activities, places, clubs…<span class="bb" style="width:36px;height:36px;border-radius:18px;display:flex;align-items:center;justify-content:center">${ICON.search('#fff')}</span></button><div class="p row" data-tour="cats" style="margin-top:12px;overflow-x:auto">${catChips()}</div>` +
+      picksHtml +
       (f.length
-        ? section('Upcoming Events', `<button data-go="discover" style="font-size:13px;font-weight:500">View all ›</button>`) +
-          `<div class="p row" style="margin-top:10px;overflow-x:auto;align-items:stretch">${upcoming.map((i) => actTile(i)).join('')}</div>` +
-          (fromClubs.length
-            ? section('From clubs you follow', `<button data-a="ctab-go:Clubs" style="font-size:13px;font-weight:500">Manage ›</button>`) +
+        ? (fromClubs.length
+            ? section('From clubs you follow', `<button data-go="followedEvents" style="font-size:13px;font-weight:500">View all ›</button>`) +
               `<div class="p row" style="margin-top:10px;overflow-x:auto;align-items:stretch">${fromClubs.map((i) => actTile(i, A[i].clubName)).join('')}</div>`
             : '') +
-          section('Top rated for you', `<button data-go="discover" style="font-size:13px;font-weight:500">View all ›</button>`) +
-          recs.map(actRow).join('')
+          section('Upcoming Activities', `<button data-go="discover" style="font-size:13px;font-weight:500">View all ›</button>`) +
+          upcoming.map(actRow).join('')
         : empty('No activities in this category yet'))
     );
   },
@@ -1475,6 +1629,34 @@ const SC = {
       )
       .join('')}</div>
 <div id="dl">${discoverList()}</div>`,
+  
+followedEvents: () => {
+  const ids = UPCOMING.filter(
+    (i) => S.following[A[i].club]
+  );
+
+  return (
+    back +
+    `<h1 class="p" style="font-size:28px;font-weight:800;line-height:1.15;margin-top:12px">
+      Activities from clubs 
+    </h1>` +
+    (ids.length
+      ? ids.map(resultCard).join('') +
+        (S.compare.length
+          ? `<div class="nb row" style="position:sticky;bottom:8px;margin:12px 16px 0;border-radius:24px;padding:8px 8px 8px 18px;justify-content:space-between">
+              <span style="font-size:12px">
+                <b>Compare</b><br>
+                ${S.compare.length} selected · up to 3
+              </span>
+              <button data-go="compare" class="y" style="padding:10px 20px;border-radius:18px;font-weight:700">
+                Compare
+              </button>
+            </div>`
+          : '')
+      : empty('No upcoming activities from clubs you follow yet'))
+  );
+},
+
   compare: () => {
     const ids = S.compare.length ? S.compare : S.plan.slice(0, 2).map((p) => p.id);
     const rows = [
@@ -1530,12 +1712,12 @@ const SC = {
         ['reviews', 'Reviews (' + a.reviews + ')'],
       ];
     const cta = !pi
-      ? `<button class="btn" data-a="join:${id}" style="width:190px;height:52px;border-radius:16px;background:var(--b);color:#fff;font-weight:700;font-size:16px">Join</button>`
+      ? `<button class="btn" data-a="join:${id}" style="width:190px;height:52px;border-radius:16px;background:var(--y);color:var(--n);font-weight:700;font-size:16px">Join</button>`
       : pi.status == 'Unpaid'
         ? `<button class="btn y" data-a="pay:${id}" style="width:190px;height:52px;border-radius:16px">Complete payment</button>`
         : pi.status == 'Done'
           ? `<button class="btn lb" disabled style="width:190px;height:52px;border-radius:16px">Completed ✓</button>`
-          : `<span class="row" style="gap:8px"><button data-go="chat:${id}" aria-label="Group chat" style="${sq};height:52px;width:52px;border-radius:16px">${ICON.chat()}</button><button class="btn" data-go="ticket:${id}" style="width:140px;height:52px;border-radius:16px;background:var(--b);color:#fff;font-weight:700">View ticket</button></span>`;
+          : `<span class="row" style="gap:8px"><button data-go="chat:${id}" aria-label="Group chat" style="${sq};height:52px;width:52px;border-radius:16px;background:var(--ys);color:var(--yt)">${ICON.chat()}</button><button class="btn" data-go="ticket:${id}" style="width:140px;height:52px;border-radius:16px;background:var(--y);color:var(--n);font-weight:700">View ticket</button></span>`;
     const body =
       tab == 'buddies'
         ? (buddyPosts.length
@@ -1565,18 +1747,26 @@ const SC = {
                   `${i ? '<div style="height:1px;background:#EEF1FA"></div>' : ''}<div><div style="font-size:14px"><b style="font-weight:600">${r[0]}</b> <span style="color:#D9A400">★ ${r[1]}</span></div><div class="mu" style="font-size:14px;line-height:1.5;margin-top:2px">${r[2]}</div></div>`,
               )
               .join('')
-          : `<div><b style="font-size:15px">Description</b><p class="mu" style="margin:6px 0 0;font-size:14px;line-height:1.6">${a.about}</p></div>` +
+          : `<div><b style="font-size:15px">Description</b><p class="mu" style="margin:8px 0 0;font-size:14.5px;line-height:1.72">${a.about}</p></div>` +
             line('level', a.level + ' · ' + (a.indoor ? 'Indoor' : 'Outdoor')) +
             line('user', a.going + ' going · ' + a.solo + ' coming solo') +
             line('star', a.rating.toFixed(1) + ' (' + a.reviews + ' reviews)') +
             line('tag', a.priceLabel + (a.price ? ' + ฿' + SERVICE_FEE + ' service fee' : ''));
-    return `<style>.evhero>*{width:100%!important;height:220px!important}</style>
+    return `<style>
+/* เพิ่มน้ำหนักตัวอักษรเฉพาะหน้า Activity Details เท่านั้น */
+.evhero>*{width:100%!important;height:220px!important}
+#scr { font-weight:600; }
+#scr .mu { font-weight:600; }
+#scr h1, #scr b { font-weight:800!important; }
+#scr [role="tab"] { font-weight:700!important; }
+#scr [role="tab"][aria-selected="true"] { font-weight:800!important; }
+</style>
 <div class="row" style="justify-content:space-between;padding:18px 20px 10px"><button data-a="back" aria-label="Back" style="${sq}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><b style="font-size:17px">Activity Details</b><button data-a="shareev:${id}" aria-label="Share" style="${sq}"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4M7.5 8.5L12 4l4.5 4.5"/><path d="M5 13v6h14v-6"/></svg></button></div>
 <div class="p" style="display:flex;flex-direction:column;gap:16px;margin-top:8px">
 <div style="position:relative"><div class="evhero">${imgSlot(id, 350, 24, 'EVENT DETAIL › photo · ' + a.title, 220)}</div><button data-a="fav:${id}" aria-label="Save activity" aria-pressed="${fv}" style="position:absolute;right:12px;top:12px;width:40px;height:40px;border-radius:20px;background:#fff;font-size:18px;color:${fv ? 'var(--b)' : 'var(--n)'}">${fv ? '♥' : '♡'}</button></div>
-<div class="row" style="gap:10px;flex-wrap:wrap"><h1 style="margin:0;font-size:26px;line-height:1.15;font-weight:700">${a.title}</h1><span style="background:#DCE7FA;font-size:11px;font-weight:700;letter-spacing:.6px;padding:5px 10px;border-radius:10px;text-transform:uppercase">${a.badge || a.cat + ' · ' + a.level}</span></div>
-<div class="row" style="gap:12px;background:#F7F9FD;border:1px solid var(--bd);border-radius:16px;padding:10px 12px"><button data-go="club:${a.club}" class="row" style="gap:10px;flex:1;min-width:0;text-align:left">${clubLogo(a.club, 40)}<span style="min-width:0"><span class="mu" style="display:block;font-size:11px">Hosted by</span><b style="display:block;font-size:14px;font-weight:600;line-height:1.3">${a.clubName}</b><span class="mu" style="display:block;font-size:11px">★ ${c.rating} · ${c.members} members</span></span></button><button data-go="chat:club~${a.club}" aria-label="Ask the club" style="width:38px;height:38px;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;flex:none">${ICON.chat(18)}</button><button data-a="fol:${a.club}" style="height:38px;padding:0 12px;border-radius:12px;font-size:12px;font-weight:700;flex:none;${fol ? 'background:#fff;border:1.5px solid #DCE4F7' : 'background:var(--b);color:#fff;border:1.5px solid var(--b)'}">${fol ? 'Following' : 'Follow'}</button></div>
-<div style="display:flex;flex-direction:column;gap:10px">${line('cal', fmtDay(a.date).replace(' ', ', '))}${line('clock', a.time + ' – ' + endLabel + ' (' + a.mins + ' mins)')}${line('pin', a.place + ' · ' + a.area, `<button data-go="route:${id}" style="font-size:13px;font-weight:600;color:#2A4DA8">Map</button>`)}</div>
+<div class="row" style="gap:10px;flex-wrap:wrap"><h1 style="margin:0;font-size:26px;line-height:1.15;font-weight:700">${a.title}</h1><span style="background:var(--ys);color:var(--yt);font-size:11px;font-weight:700;letter-spacing:.6px;padding:5px 10px;border-radius:10px;text-transform:uppercase">${a.badge || a.cat + ' · ' + a.level}</span></div>
+<div class="row" style="gap:12px;background:#F7F9FD;border:1px solid var(--bd);border-radius:16px;padding:10px 12px"><button data-go="club:${a.club}" class="row" style="gap:10px;flex:1;min-width:0;text-align:left">${clubLogo(a.club, 40)}<span style="min-width:0"><span class="mu" style="display:block;font-size:11px">Hosted by</span><b style="display:block;font-size:14px;font-weight:600;line-height:1.3">${a.clubName}</b><span class="mu" style="display:block;font-size:11px">★ ${c.rating} · ${c.members} members</span></span></button><button data-go="chat:club~${a.club}" aria-label="Ask the club" style="width:38px;height:38px;border-radius:12px;background:var(--ys);color:var(--yt);display:flex;align-items:center;justify-content:center;flex:none">${ICON.chat(18)}</button><button data-a="fol:${a.club}" style="height:38px;padding:0 12px;border-radius:12px;font-size:12px;font-weight:700;flex:none;color:var(--yt);${fol ? 'background:#fff;border:1.5px solid var(--ys)' : 'background:var(--ys);border:1.5px solid var(--y)'}">${fol ? 'Following' : 'Follow'}</button></div>
+<div style="display:flex;flex-direction:column;gap:10px">${line('cal', fmtDay(a.date).replace(' ', ', '))}${line('clock', a.time + ' – ' + endLabel + ' (' + a.mins + ' mins)')}${line('pin', a.place + ' · ' + a.area, `<button data-go="route:${id}" style="font-size:13px;font-weight:700;background:var(--ys);color:var(--yt);padding:6px 14px;border-radius:12px">Map</button>`)}</div>
 <div role="tablist" class="row" style="border-bottom:1.5px solid var(--bd)">${tabs
       .map(
         (t) =>
@@ -1795,8 +1985,7 @@ ${P.err ? `<div role="alert" style="margin:12px 20px 0;background:#FFECEF;color:
     return (
       back +
       hdr('Route', 'Getting to ' + a.place) +
-      `<div style="margin:14px 20px 0">${mapBlock(a)}</div>
-<div class="card" style="margin:12px 20px 0"><div class="row"><span style="width:10px;height:10px;border-radius:5px;background:var(--b)"></span>Your location</div>
+      `<div class="card" style="margin:12px 20px 0"><div class="row"><span style="width:10px;height:10px;border-radius:5px;background:var(--b)"></span>Your location</div>
 <div style="margin:4px 4px;border-left:2px dotted #B9C9EE;height:14px"></div>
 <div class="row"><span style="width:10px;height:10px;border-radius:5px;background:var(--y)"></span><b>${a.place}</b><span class="mu" style="font-size:11px">${a.kmLabel}</span></div>
 </div><div class="p row" style="margin-top:12px;overflow-x:auto">${modes.map((x, i) => `<button data-a="rt:${i}" class="chip ${m == x ? 'on' : ''}" style="text-align:left;line-height:1.3">${x.name}<br><span style="font-size:11px;font-weight:400">${fmtMins(x.mins(a.km))} · ${x.cost(a.km)}</span></button>`).join('')}</div>
@@ -1852,7 +2041,7 @@ ${pin}${ms.map(bubble).join('')}<div style="position:sticky;bottom:0;background:
 
   // ── COMMUNITY — ฟีด โพสต์ ผู้สนใจ และหน้าคลับ
   community: () =>
-    `<div class="p row" style="padding-top:26px">${avatar('var(--ys)', 40, USER.name)}<input id="cq" class="inp" aria-label="Find friends or clubs" placeholder="Find friends, clubs or posts" value="${S.cq}" style="height:44px;border-radius:22px">${iconBtn('data-go="inbox"', 'Messages', ICON.chat(), 'flex:none')}</div>
+    `<div class="p row" style="padding-top:26px"><button data-tab="profile" aria-label="My profile" style="flex:none;border-radius:20px">${avatar('var(--ys)', 40, USER.name)}</button><input id="cq" class="inp" aria-label="Find friends or clubs" placeholder="Find friends, clubs or posts" value="${S.cq}" style="height:44px;border-radius:22px">${iconBtn('data-go="inbox"', 'Messages', ICON.chat(), 'flex:none')}</div>
 <div class="p row" style="margin-top:12px;overflow-x:auto">${['Feed', 'Buddies', 'Clubs', 'Looking for buddy'].map((t) => `<button data-a="ctab:${t}" class="chip ${S.ctab == t ? 'on' : ''}">${t}</button>`).join('')}</div>
 <div id="cl">${communityList()}</div>
 <button data-a="newpost" class="y" style="position:sticky;bottom:12px;display:block;margin:12px 16px 0 auto;height:48px;padding:0 20px;border-radius:24px;font-weight:700">+ Post</button>`,
@@ -1989,7 +2178,7 @@ ${pin}${ms.map(bubble).join('')}<div style="position:sticky;bottom:0;background:
     return (
       hdr('Profile', USER.name, '<button data-go="settings" aria-label="Menu" style="font-size:26px">☰</button>') +
       `<div class="p row" style="margin-top:14px;gap:16px"><label for="photo" aria-label="Change profile photo" style="width:84px;height:84px;flex:none;display:block;position:relative;cursor:pointer"><span style="width:84px;height:84px;border-radius:42px;background:var(--ys);overflow:hidden;display:block">${personImg(USER.name) ? `<img src="${personImg(USER.name)}" alt="${USER.name}" style="width:84px;height:84px;object-fit:cover;display:block">` : '<svg viewBox="0 0 120 110" width="84" height="84" aria-hidden="true"><circle cx="60" cy="40" r="22" fill="#10328F"/><path d="M20 110Q60 50 100 110Z" fill="#5B88D6"/></svg>'}</span><span style="position:absolute;right:-2px;bottom:-2px;width:28px;height:28px;border-radius:14px;background:var(--b);border:2px solid #fff;color:#fff;display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></span><input id="photo" type="file" accept="image/*" hidden></label><div class="row" style="gap:24px"><div style="text-align:center"><b style="font-size:20px">${rs.length}</b><div class="mu" style="font-size:11px">Activities</div></div><div style="text-align:center"><b style="font-size:20px">${7 + Object.values(S.connected).filter(Boolean).length}</b><div class="mu" style="font-size:11px">Friends</div></div><button data-a="ctab-go:Clubs" style="text-align:center"><b style="font-size:20px">${Object.values(S.following).filter(Boolean).length}</b><div class="mu" style="font-size:11px">Clubs</div></button></div></div>
-<div class="p row" style="margin-top:12px">${top.map((c) => `<span class="chip" style="padding:4px 12px;font-size:12px">${c}</span>`).join('')}</div>
+<div class="p row" style="margin-top:12px;flex-wrap:wrap">${(S.prefs.cats.length ? S.prefs.cats.slice(0, 4) : top).map((c) => `<span class="chip" style="padding:4px 12px;font-size:12px">${c}</span>`).join('')}</div>
 <div class="p" style="margin-top:16px;font-weight:700">Recap</div>
 <div class="p" style="margin-top:8px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px">${rs.map((r) => `<button data-go="recap:${r.id}" aria-label="Recap ${r.title}" style="text-align:left">${imgSlot('recap:' + r.id, 106, 16, 'PROFILE › recap tile · ' + r.title)}<b style="display:block;font-size:11px;margin-top:4px;line-height:1.2">${r.title}</b><span class="mu" style="font-size:10px">${r.dateLabel}</span></button>`).join('')}</div>`
     );
@@ -2022,11 +2211,15 @@ ${pin}${ms.map(bubble).join('')}<div style="position:sticky;bottom:0;background:
       `<div class="row" style="margin:14px 20px 0;padding:14px 0;border-bottom:1px solid #EEF1FA;justify-content:space-between"><span>Phone number</span><b>${USER.phone}</b></div>` +
       link('saved', `Saved activities (${S.saved.length})`) +
       link('payments', `Payments & receipts (${S.payments.length})`) +
+      `<div class="p" style="margin-top:20px;font-weight:800">Personalization</div>` +
+      `<button data-a="editprefs" class="row" style="margin:0 20px;padding:14px 0;border-bottom:1px solid #EEF1FA;justify-content:space-between;width:calc(100% - 40px);text-align:left;gap:10px"><span style="min-width:0">Edit my preferences<span class="mu" style="display:block;font-size:12px">${hasPrefs() ? prefSummary() : 'Not set yet'}</span></span>›</button>` +
+      `<button data-a="replaytour" class="row" style="margin:0 20px;padding:14px 0;border-bottom:1px solid #EEF1FA;justify-content:space-between;width:calc(100% - 40px)"><span>Replay app tour</span>›</button>` +
+      `<div class="p" style="margin-top:20px;font-weight:800">Notifications & sync</div>` +
       tg('sync', 'Sync contacts') +
       tg('calendar', 'Sync plan to phone calendar') +
       tg('alerts', 'PM2.5 and flood alerts') +
       tg('clubs', 'New activities from clubs I follow') +
-      `<div style="margin:24px 20px 0"><button data-a="logout" class="btn gr">Log out</button></div>`
+      `<div style="margin:24px 20px 0"><button data-a="logout" class="btn gr">Log out</button><button data-a="resetdemo" style="width:100%;margin-top:10px;padding:10px;font-size:13px;font-weight:600;color:var(--mu)">Restart as a new user (demo)</button></div>`
     );
   },
 };
@@ -2062,6 +2255,47 @@ function render() {
         `<button data-tab="${k}" class="${S.tab == k ? 'on' : ''}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${NAV_ICONS[k]}</svg>${NAV_LABELS[k]}</button>`,
     )
     .join('');
+  drawTour();
+}
+
+// ── ทัวร์แนะนำการใช้งาน: ไฮไลต์ทีละจุด แล้วมีกล่องข้อความ Next / Skip
+function drawTour() {
+  const old = $('#tour');
+  if (old) old.remove();
+  if (S.tourStep == null || S.stack.length || S.tab != 'home') return;
+  const steps = TOUR.filter((t) => document.querySelector(t.sel));
+  if (S.tourStep >= steps.length) return endTour();
+  const st = steps[S.tourStep],
+    el = document.querySelector(st.sel),
+    app = $('#app'),
+    scr = $('#scr');
+  if (scr.contains(el)) scr.scrollTop = Math.max(0, el.offsetTop - 120);
+  const ar = app.getBoundingClientRect(),
+    r = el.getBoundingClientRect(),
+    pad = 6,
+    x = Math.max(4, r.left - ar.left - pad),
+    y = r.top - ar.top - pad,
+    w = Math.min(ar.width - 8 - x, r.width + pad * 2),
+    h = r.height + pad * 2,
+    below = y + h + 200 < ar.height,
+    last = S.tourStep == steps.length - 1;
+  const d = document.createElement('div');
+  d.id = 'tour';
+  d.setAttribute('role', 'dialog');
+  d.setAttribute('aria-label', 'App tour');
+  d.style.cssText = 'position:absolute;inset:0;z-index:60';
+  d.innerHTML = `<div style="position:absolute;left:${x}px;top:${y}px;width:${w}px;height:${h}px;border-radius:18px;box-shadow:0 0 0 9999px rgba(16,50,143,.62);border:2px solid var(--y);pointer-events:none"></div>
+<div style="position:absolute;left:16px;right:16px;${below ? 'top:' + (y + h + 12) : 'bottom:' + (ar.height - y + 12)}px;background:#fff;border-radius:20px;padding:16px 18px"><div class="mu" style="font-size:11px;font-weight:700">${S.tourStep + 1} of ${steps.length}</div><b style="display:block;font-size:17px;margin-top:2px">${st.title}</b><div style="font-size:13px;margin-top:4px;line-height:1.5">${st.text}</div><div class="row" style="justify-content:space-between;margin-top:12px"><button data-a="tourskip" style="font-weight:600;color:var(--mu);padding:8px 0">Skip tour</button><button data-a="tournext" class="y" style="height:40px;padding:0 22px;border-radius:12px;font-weight:700">${last ? 'Got it' : 'Next'}</button></div></div>`;
+  app.appendChild(d);
+  const nb = d.querySelector('[data-a="tournext"]');
+  if (nb) nb.focus();
+}
+function endTour() {
+  S.tourStep = null;
+  S.toured = true;
+  lsSet('vybe.toured', true);
+  const old = $('#tour');
+  if (old) old.remove();
 }
 
 function toast(t) {
@@ -2374,9 +2608,115 @@ const ACTIONS = {
     S.toggles[x] = !S.toggles[x];
     render();
   },
+  // หลังยืนยัน OTP / Google / Apple: ผู้ใช้เดิม → Home ทันที · ผู้ใช้ใหม่ → ตั้งค่าโปรไฟล์ + คำถาม
+  auth: () => {
+    if (S.onboarded) {
+      S.loggedIn = true;
+      lsSet('vybe.loggedIn', true);
+      S.stack = [];
+      S.tab = 'home';
+      render();
+      toast('Welcome back, ' + USER.name);
+    } else go('setup');
+  },
   logout: () => {
+    S.loggedIn = false;
+    lsSet('vybe.loggedIn', false);
     S.stack = [{ n: 'signup' }];
     render();
+  },
+  // ── onboarding
+  setupdone: () => {
+    const v = ($('#nm') || {}).value;
+    if (v != null && !v.trim()) return toast('Enter your name to continue');
+    if (v) (USER.name = v.trim()), lsSet('vybe.name', USER.name);
+    S.qstep = 0;
+    S.quizFrom = null;
+    go('quiz');
+  },
+  qpick: (k, v) => {
+    const q = QUIZ.find((x) => x.key == k);
+    if (q.multi) {
+      const a = S.prefs[k],
+        i = a.indexOf(v);
+      i > -1 ? a.splice(i, 1) : a.push(v);
+    } else S.prefs[k] = S.prefs[k] == v ? '' : v;
+    savePrefs();
+    render();
+  },
+  qnext: () => {
+    if (S.qstep < QUIZ.length - 1) {
+      S.qstep++;
+      return render();
+    }
+    ACTIONS.qdone();
+  },
+  qskip: () => ACTIONS.qdone(),
+  qdone: () => {
+    savePrefs();
+    if (S.quizFrom) {
+      const from = S.quizFrom;
+      S.quizFrom = null;
+      if (from == 'home') toTab('home', hasPrefs() ? 'Your picks are ready' : '');
+      else {
+        S.stack.pop();
+        render();
+        toast('Preferences saved · Home updated');
+      }
+      return;
+    }
+    S.stack = [{ n: 'sync' }];
+    render();
+  },
+  qback: () => {
+    if (S.qstep > 0) {
+      S.qstep--;
+      return render();
+    }
+    S.stack.pop();
+    render();
+  },
+  onbdone: () => {
+    S.onboarded = S.loggedIn = true;
+    lsSet('vybe.onboarded', true);
+    lsSet('vybe.loggedIn', true);
+    S.stack = [];
+    S.tab = 'home';
+    S.cat = 'All';
+    if (!S.toured) S.tourStep = 0;
+    render();
+  },
+  editprefs: () => {
+    S.qstep = 0;
+    S.quizFrom = S.stack.length ? 'settings' : 'home';
+    go('quiz');
+  },
+  tournext: () => {
+    S.tourStep++;
+    render();
+  },
+  tourskip: () => endTour(),
+  replaytour: () => {
+    S.stack = [];
+    S.tab = 'home';
+    S.cat = 'All';
+    S.tourStep = 0;
+    render();
+  },
+  resetdemo: () => {
+    ['vybe.prefs', 'vybe.toured', 'vybe.name', 'vybe.myPhoto', 'vybe.onboarded', 'vybe.loggedIn'].forEach((k) => {
+      try {
+        localStorage.removeItem(k);
+      } catch (e) {}
+    });
+    S.prefs = { cats: [], level: '', time: [], budget: '', style: '' };
+    S.toured = false;
+    S.onboarded = S.loggedIn = false;
+    S.myPhoto = '';
+    USER.name = 'Jennie Kim';
+    S.stack = [{ n: 'signup' }];
+    render();
+    toast('Reset · sign up again to see the new-user flow');
   },
   alt: (x) => {
     S.alt = x;
@@ -2432,9 +2772,10 @@ document.addEventListener('input', (e) => {
   else if (t.id == 'cexp') S.pay.card.exp = t.value = fmtExp(t.value);
   else if (t.id == 'ccvc') S.pay.card.cvc = t.value = t.value.replace(/\D/g, '').slice(0, 4);
   else if (t.id == 'cname') S.pay.card.name = t.value;
+  else if (t.id == 'nm') USER.name = t.value;
 });
 
-// เลือกรูปโปรไฟล์จากเครื่อง (เก็บไว้เฉพาะระหว่างเปิดแอปครั้งนี้)
+// เลือกรูปโปรไฟล์จากเครื่อง (จำไว้ในเบราว์เซอร์เครื่องนี้ รีเฟรชแล้วยังอยู่)
 document.addEventListener('change', (e) => {
   if (e.target.id != 'photo' || !e.target.files || !e.target.files[0]) return;
   const f = e.target.files[0];
@@ -2442,6 +2783,7 @@ document.addEventListener('change', (e) => {
   const r = new FileReader();
   r.onload = () => {
     S.myPhoto = r.result;
+    try { localStorage.setItem('vybe.myPhoto', r.result); } catch (e) {}
     render();
     toast('Profile photo updated');
   };
@@ -2454,6 +2796,7 @@ document.addEventListener('keydown', (e) => {
     if (b) b.click();
   }
   if (e.key === 'Enter' && e.target.id === 'promo') ACTIONS.promo();
+  if (e.key === 'Escape' && S.tourStep != null) endTour();
 });
 
 // นับถอยหลังอายุ QR PromptPay
@@ -2464,6 +2807,7 @@ setInterval(() => {
   el.textContent = Math.floor(left / 60) + ':' + pad2(left % 60);
 }, 1000);
 
-S.stack = [{ n: 'signup' }];
+// เปิดแอป: ยังเข้าสู่ระบบอยู่ → Home · ยังไม่เคยใช้ หรือออกจากระบบแล้ว → หน้าสมัคร
+S.stack = S.loggedIn ? [] : [{ n: 'signup' }];
 render();
 </script></body></html>
