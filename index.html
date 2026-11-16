@@ -245,6 +245,71 @@ h1, h2, h3 {
 #toast.s {
   opacity: 1;
 }
+/* ── ACTIVITY ROOM — พื้นที่แห่งการเชื่อมต่อ (ดูโค้ดส่วน 6b) */
+.rm{position:absolute;inset:0;overflow:hidden;background:#06091f;color:#fff;font-family:'Noto Sans Thai','Manrope',Arial,sans-serif}
+.rm-bg{position:absolute;left:-6%;top:-6%;width:112%;height:112%;object-fit:cover;filter:saturate(1.1) brightness(.85);animation:rmKen 28s ease-in-out infinite alternate}
+.rm-in .rm-bg{animation:rmReveal 1.6s ease forwards,rmKen 28s ease-in-out 1.6s infinite alternate}
+.rm-tint{position:absolute;inset:0}
+.rm-cv{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.rm-glass{background:rgba(255,255,255,.14);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.22)}
+.rm-top{position:absolute;left:16px;right:16px;top:18px;display:flex;align-items:center;justify-content:space-between;gap:8px;z-index:3}
+.rm-ic{width:42px;height:42px;border-radius:21px;color:#fff;font-size:22px;display:flex;align-items:center;justify-content:center;flex:none}
+.rm-seg{display:flex;border-radius:20px;padding:3px}
+.rm-seg button{color:rgba(255,255,255,.85);font-size:12px;font-weight:700;padding:7px 12px;border-radius:16px}
+.rm-seg button.on{background:#fff;color:#10328f}
+.rm-head{position:absolute;left:22px;right:22px;top:78px;z-index:2}
+.rm-meta{font-size:10.5px;letter-spacing:1.5px;font-weight:700;color:var(--rm-accent);font-family:'Manrope',sans-serif}
+.rm-title{font-size:30px;line-height:1.08;margin-top:6px;color:#fff;font-weight:800;text-wrap:balance}
+.rm-mood{font-size:15px;margin-top:8px;color:rgba(255,255,255,.9);line-height:1.5}
+.rm-stage{position:absolute;left:0;right:0;top:206px;bottom:262px;z-index:2}
+.rm-p{position:absolute;opacity:0;animation:rmIn 1.2s cubic-bezier(.2,.8,.2,1) forwards}
+.rm-bob{display:flex;align-items:center;gap:8px;animation:rmBob 7s ease-in-out infinite}
+.rm-bob > img,.rm-bob > span{box-shadow:0 0 0 2px rgba(255,255,255,.75),0 0 18px var(--rm-accent)}
+.rm-note{background:rgba(255,255,255,.16);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.22);border-radius:14px 14px 14px 4px;padding:6px 10px;font-size:12px;max-width:150px;line-height:1.35}
+.rm-note b{display:block;font-size:10px;color:var(--rm-accent);font-family:'Manrope',sans-serif}
+.rm-panel{position:absolute;left:12px;right:12px;bottom:14px;border-radius:26px;padding:16px;z-index:3;display:flex;flex-direction:column;gap:10px;box-sizing:border-box}
+.rm-count{font-size:26px;font-weight:800;font-family:'Plus Jakarta Sans','Noto Sans Thai',sans-serif}
+.rm-sub{font-size:13px;color:rgba(255,255,255,.88)}
+.rm-quick{display:flex;gap:6px;overflow-x:auto}
+.rm-quick button{flex:none;color:#fff;font-size:12px;padding:7px 12px;border-radius:16px;border:1px solid rgba(255,255,255,.4)}
+.rm-row{display:flex;gap:8px}
+.rm-btn{flex:1;height:46px;border-radius:16px;font-weight:700;font-size:14px;color:#fff;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center}
+.rm-btn-y{background:var(--y);color:var(--n)}
+.rm-btn-done{background:rgba(255,255,255,.92);color:var(--n)}
+.rm-mine{display:flex;align-items:center;gap:8px;font-size:12px;background:rgba(255,214,91,.24);border-radius:12px;padding:6px 10px}
+.rm-live{position:absolute;left:0;right:0;top:196px;bottom:170px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;z-index:2}
+.rm-ring{position:relative;width:200px;height:200px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.rm-ring::before{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,var(--rm-accent) 0%,rgba(255,255,255,0) 70%);opacity:.55;animation:rmBreath 4s ease-in-out infinite}
+.rm-ring-core{position:relative;width:136px;height:136px;border-radius:50%;background:rgba(255,255,255,.14);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.35);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.rm-ring-core b{font-size:46px;line-height:1;font-family:'Plus Jakarta Sans',sans-serif}
+.rm-ring-core span{font-size:12px;opacity:.88;margin-top:4px}
+.rm-ripple{position:absolute;inset:24px;border-radius:50%;border:2px solid var(--rm-accent);animation:rmRipple 1.6s ease-out forwards}
+.rm-ticker{font-size:14px;background:rgba(255,255,255,.14);border-radius:14px;padding:8px 14px;max-width:82%;text-align:center}
+.rm-ticker b{color:var(--rm-accent)}
+.rm-wall{position:absolute;left:16px;right:16px;top:194px;bottom:206px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;z-index:2;align-content:start}
+.rm-tile{margin:0;background:#fff;color:var(--n);border-radius:14px;padding:6px 6px 8px;transform:rotate(var(--r));opacity:0;animation:rmTile .9s ease forwards;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.rm-tile img,.rm-ph{width:100%;height:64px;object-fit:cover;border-radius:9px;display:block;background:#dde3f2}
+.rm-tile figcaption{display:flex;gap:6px;align-items:center;font-size:11px;margin-top:6px;line-height:1.3}
+.rm-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));text-align:center}
+.rm-stats b{display:block;font-size:19px;font-family:'Plus Jakarta Sans','Noto Sans Thai',sans-serif}
+.rm-stats span{font-size:11px;opacity:.88}
+.rm-gate{position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#fff;background:rgba(6,10,36,.55);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);text-align:center;padding:0 30px;width:100%}
+.rm-gate-glow{width:96px;height:96px;border-radius:50%;background:radial-gradient(circle,var(--rm-accent),rgba(255,255,255,0) 70%);animation:rmBreath 3s ease-in-out infinite;margin-bottom:6px}
+.rm-gate-k{font-size:11px;letter-spacing:3px;font-weight:700;color:var(--rm-accent);font-family:'Manrope',sans-serif}
+.rm-gate-t{font-size:28px;font-weight:800;line-height:1.1;font-family:'Plus Jakarta Sans','Noto Sans Thai',sans-serif}
+.rm-gate-s{font-size:15px;opacity:.92}
+.rm-gate-h{display:flex;gap:6px;align-items:center;font-size:12px;opacity:.78;margin-top:18px}
+.rm-enter{position:absolute;left:12px;bottom:12px;display:flex;align-items:center;gap:8px;height:40px;padding:0 16px 0 12px;border-radius:20px;background:rgba(6,10,36,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;font-size:13px;font-weight:700}
+.rm-enter i{width:10px;height:10px;border-radius:5px;background:var(--y);box-shadow:0 0 10px var(--y);animation:rmBreath 2.4s ease-in-out infinite}
+.rm-still .rm-p,.rm-still .rm-tile{animation:none;opacity:1}
+@keyframes rmKen{from{transform:scale(1) translate(0,0)}to{transform:scale(1.08) translate(-2%,-1.5%)}}
+@keyframes rmReveal{from{transform:scale(1.18);filter:blur(10px) brightness(.6)}to{transform:scale(1);filter:saturate(1.1) brightness(.85)}}
+@keyframes rmIn{from{opacity:0;transform:translateY(24px) scale(.9)}to{opacity:1;transform:none}}
+@keyframes rmBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes rmBreath{0%,100%{transform:scale(.88);opacity:.5}50%{transform:scale(1.08);opacity:.85}}
+@keyframes rmRipple{from{transform:scale(.7);opacity:.9}to{transform:scale(1.75);opacity:0}}
+@keyframes rmTile{from{opacity:0;transform:rotate(var(--r)) translateY(20px)}to{opacity:1;transform:rotate(var(--r))}}
+@media (prefers-reduced-motion:reduce){.rm *,.rm{animation:none!important}.rm-p,.rm-tile{opacity:1}}
 :focus-visible {
   outline: 3px solid var(--y);
   outline-offset: 2px;
@@ -1017,7 +1082,7 @@ const S = {
 
 // หน้าที่แสดงเต็มจอ (ไม่มีแถบเมนูล่าง)
 const FULL = [
-  'setup', 'quiz',
+  'setup', 'quiz', 'room',
   'signup', 'otp', 'sync', 'friends', 'event', 'notif', 'replan', 'recap', 'compare', 'payment',
   'newpost', 'club', 'settings', 'route', 'chat', 'buddypost', 'postdetail', 'saved', 'calendar',
   'inbox', 'payqr', 'processing', 'receipt', 'ticket', 'payments',
@@ -1763,7 +1828,7 @@ followedEvents: () => {
 </style>
 <div class="row" style="justify-content:space-between;padding:18px 20px 10px"><button data-a="back" aria-label="Back" style="${sq}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><b style="font-size:17px">Activity Details</b><button data-a="shareev:${id}" aria-label="Share" style="${sq}"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4M7.5 8.5L12 4l4.5 4.5"/><path d="M5 13v6h14v-6"/></svg></button></div>
 <div class="p" style="display:flex;flex-direction:column;gap:16px;margin-top:8px">
-<div style="position:relative"><div class="evhero">${imgSlot(id, 350, 24, 'EVENT DETAIL › photo · ' + a.title, 220)}</div><button data-a="fav:${id}" aria-label="Save activity" aria-pressed="${fv}" style="position:absolute;right:12px;top:12px;width:40px;height:40px;border-radius:20px;background:#fff;font-size:18px;color:${fv ? 'var(--b)' : 'var(--n)'}">${fv ? '♥' : '♡'}</button></div>
+<div style="position:relative"><div class="evhero">${imgSlot(id, 350, 24, 'EVENT DETAIL › photo · ' + a.title, 220)}</div><button data-a="fav:${id}" aria-label="Save activity" aria-pressed="${fv}" style="position:absolute;right:12px;top:12px;width:40px;height:40px;border-radius:20px;background:#fff;font-size:18px;color:${fv ? 'var(--b)' : 'var(--n)'}">${fv ? '♥' : '♡'}</button><button data-go="room:${id}" class="rm-enter" aria-label="Step inside the activity room"><i></i>Step inside</button></div>
 <div class="row" style="gap:10px;flex-wrap:wrap"><h1 style="margin:0;font-size:26px;line-height:1.15;font-weight:700">${a.title}</h1><span style="background:var(--ys);color:var(--yt);font-size:11px;font-weight:700;letter-spacing:.6px;padding:5px 10px;border-radius:10px;text-transform:uppercase">${a.badge || a.cat + ' · ' + a.level}</span></div>
 <div class="row" style="gap:12px;background:#F7F9FD;border:1px solid var(--bd);border-radius:16px;padding:10px 12px"><button data-go="club:${a.club}" class="row" style="gap:10px;flex:1;min-width:0;text-align:left">${clubLogo(a.club, 40)}<span style="min-width:0"><span class="mu" style="display:block;font-size:11px">Hosted by</span><b style="display:block;font-size:14px;font-weight:600;line-height:1.3">${a.clubName}</b><span class="mu" style="display:block;font-size:11px">★ ${c.rating} · ${c.members} members</span></span></button><button data-go="chat:club~${a.club}" aria-label="Ask the club" style="width:38px;height:38px;border-radius:12px;background:var(--ys);color:var(--yt);display:flex;align-items:center;justify-content:center;flex:none">${ICON.chat(18)}</button><button data-a="fol:${a.club}" style="height:38px;padding:0 12px;border-radius:12px;font-size:12px;font-weight:700;flex:none;color:var(--yt);${fol ? 'background:#fff;border:1.5px solid var(--ys)' : 'background:var(--ys);border:1.5px solid var(--y)'}">${fol ? 'Following' : 'Follow'}</button></div>
 <div style="display:flex;flex-direction:column;gap:10px">${line('cal', fmtDay(a.date).replace(' ', ', '))}${line('clock', a.time + ' – ' + endLabel + ' (' + a.mins + ' mins)')}${line('pin', a.place + ' · ' + a.area, `<button data-go="route:${id}" style="font-size:13px;font-weight:700;background:var(--ys);color:var(--yt);padding:6px 14px;border-radius:12px">Map</button>`)}</div>
@@ -1897,7 +1962,7 @@ ${P.err ? `<div role="alert" style="margin:12px 20px 0;background:#FFECEF;color:
       ? `<div class="nb" style="margin:14px 20px 0;border-radius:24px;padding:16px;background:var(--b);position:relative"><button data-go="ticket:${nx}" aria-label="Open ticket" style="position:absolute;right:14px;top:14px;width:84px;background:#fff;border-radius:14px;padding:8px;text-align:center;color:var(--n)">${qrBox(60, 'Check-in QR')}<div style="font-size:9px;font-weight:700;margin-top:4px">${pi.ref || 'NOT PAID'}</div></button><div style="font-size:11px;font-weight:700;color:var(--ys)">${a.date == TODAY ? 'Today' : 'Next up · ' + a.day}</div>
 <div style="font-size:20px;font-weight:800;color:#fff;margin-top:2px;padding-right:90px">${a.title}</div>
 <div style="font-size:12px;color:#fff;margin-top:2px;padding-right:90px">${a.time} · ${a.place}</div>
-<div class="row" style="margin-top:12px"><button data-go="route:${nx}" class="y" style="padding:9px 18px;border-radius:18px;font-weight:700;font-size:13px">Route</button><button data-go="chat:${nx}" style="padding:9px 18px;border-radius:18px;font-weight:700;font-size:13px;background:rgba(255,255,255,.25);color:#fff">Group chat</button></div>
+<div class="row" style="margin-top:12px"><button data-go="route:${nx}" class="y" style="padding:9px 18px;border-radius:18px;font-weight:700;font-size:13px">Route</button><button data-go="chat:${nx}" style="padding:9px 14px;border-radius:18px;font-weight:700;font-size:13px;background:rgba(255,255,255,.25);color:#fff">Group chat</button><button data-go="room:${nx}" style="padding:9px 14px;border-radius:18px;font-weight:700;font-size:13px;background:rgba(6,10,36,.35);color:#fff">Room ✦</button></div>
 <button data-a="finish:${nx}" style="margin-top:10px;color:#fff;font-size:12px;font-weight:600;text-decoration:underline">Checked in · Finish and create Recap</button></div>`
       : empty('Your plan is empty. Tap + to add an activity.');
     const banners = activeAlerts()
@@ -2225,6 +2290,445 @@ ${pin}${ms.map(bubble).join('')}<div style="position:sticky;bottom:0;background:
 };
 
 // ════════════════════════════════════════════════════════════
+// 6b. ACTIVITY ROOM — "พื้นที่แห่งการเชื่อมต่อ" ของแต่ละกิจกรรม (ภาพ · เสียง · การเคลื่อนไหว · ข้อความของคน)
+// ════════════════════════════════════════════════════════════
+// เข้าได้จาก: ปุ่ม "Step inside" บนรูปหน้ากิจกรรม และปุ่ม "Room" ในการ์ด Today (My Schedule)
+// 3 ช่วงเวลา: before = รอคอย · live = ระหว่างกิจกรรม · after = ความทรงจำ
+// ระบบเลือกช่วงให้อัตโนมัติจากเวลา และกดสลับดูได้ที่แถบด้านบน (ใช้ตอนพรีเซนต์)
+// แก้ข้อความ/คนในห้องได้ที่ ROOM ด้านล่าง · เสียงสร้างด้วยโค้ด (Web Audio) ไม่ต้องใช้ไฟล์เสียง
+
+const ROOM = {
+  // คนทั่วไปที่เติมให้ห้องดูมีชีวิต (นอกเหนือจากเพื่อนและคนที่โพสต์ถึงกิจกรรมนี้)
+  crowd: [['Mild', '#FFB6D0'], ['Nok', '#A8D8F0'], ['Ice', '#C9E8B8'], ['Bank', '#FFE680'], ['June', '#B7A6F0'], ['Pond', '#F5B98A'], ['Aom', '#9FD8E8']],
+  notesBefore: ['ครั้งแรกเลย ตื่นเต้นมาก', 'มาคนเดียว เจอกันแล้วทักได้นะ', 'จะไปถึงก่อน 10 นาที', 'ใครนั่ง BTS ไปด้วยกันบ้าง', 'นอนเร็วเพื่อวันนี้เลย', 'พกน้ำมาเผื่อเพื่อนด้วย', 'มาครั้งที่ 5 แล้ว ชอบมาก'],
+  quick: ['ตื่นเต้นมาก!', 'มาคนเดียวครั้งแรก', 'ใครไปทางเดียวกันบ้าง', 'เจอกันหน้าทางเข้านะ'],
+  liveTicker: ['ถึงแล้ว!', 'วอร์มอัพกันอยู่', 'อากาศดีมาก', 'เจอกันที่จุดนัดพบ', 'พร้อมแล้ว!'],
+  notesAfter: ['ขอบคุณทุกคนนะ', 'เหนื่อยแต่สนุกมาก', 'ได้เพื่อนใหม่ 3 คน', 'รอบหน้าไปอีกแน่นอน', 'บรรยากาศดีสุด ๆ', 'ภูมิใจในตัวเองวันนี้'],
+  mood: {
+    before: 'คุณไม่ได้มาคนเดียว ทุกคนกำลังเตรียมตัวเหมือนคุณ',
+    live: 'ตอนนี้ทุกคนอยู่ตรงนี้ด้วยกัน',
+    after: 'ความทรงจำที่สร้างด้วยกัน',
+  },
+};
+
+// สีบรรยากาศตามเวลาของกิจกรรม: [แสงด้านบน, เงาด้านล่าง, สีเน้น]
+const ROOM_TONES = {
+  dawn: ['rgba(255,190,110,.42)', 'rgba(14,22,66,.92)', '#FFD65B'],
+  day: ['rgba(255,236,190,.28)', 'rgba(10,32,78,.9)', '#FFE9A6'],
+  dusk: ['rgba(255,125,110,.42)', 'rgba(44,12,70,.92)', '#FFB38A'],
+  night: ['rgba(80,100,210,.38)', 'rgba(6,10,36,.95)', '#A9BEFF'],
+};
+
+S.room = { phase: {}, notes: {}, live: {}, here: {}, seen: {}, muted: false, open: false };
+
+const roomTone = (a) => {
+  const h = +a.time.slice(0, 2);
+  return h < 10 ? 'dawn' : h < 16 ? 'day' : h < 19 ? 'dusk' : 'night';
+};
+const roomKind = (a) => (['Swimming', 'Paddle', 'Ice Bath'].includes(a.cat) ? 'water' : a.indoor ? 'studio' : 'nature');
+const nowOnToday = () => {
+  const d = toDate(TODAY),
+    n = new Date();
+  d.setHours(n.getHours(), n.getMinutes());
+  return d;
+};
+const actStart = (a) => {
+  const d = toDate(a.date);
+  d.setHours(+a.time.slice(0, 2), +a.time.slice(3, 5));
+  return d;
+};
+const roomAutoPhase = (id) => {
+  const a = A[id],
+    pi = planItem(id),
+    st = actStart(a),
+    en = new Date(st.getTime() + a.mins * 60000),
+    n = nowOnToday();
+  if ((pi && pi.status == 'Done') || n >= en) return 'after';
+  return n >= st ? 'live' : 'before';
+};
+const roomPhase = (id) => S.room.phase[id] || roomAutoPhase(id);
+const roomCountdown = (id) => {
+  const ms = actStart(A[id]) - nowOnToday();
+  if (ms <= 0) return 'See you at ' + A[id].time;
+  const m = Math.round(ms / 60000),
+    d = Math.floor(m / 1440),
+    h = Math.floor((m % 1440) / 60);
+  return 'Starts in ' + (d ? d + 'd ' : '') + (h ? h + 'h ' : '') + (d ? '' : (m % 60) + 'm');
+};
+// คนในห้อง: เพื่อนที่ไป → คนที่โพสต์ถึงกิจกรรมนี้ → คนทั่วไป (สูงสุด 6 คน)
+const roomPeople = (id, notes) => {
+  const seen = new Set(),
+    out = [],
+    add = (name, color) => !seen.has(name) && name != USER.name && seen.add(name) && out.push({ name, color });
+  FRIENDS.filter((f) => f.going == id).forEach((f) => add(f.name, f.color));
+  S.posts.filter((p) => p.act == id && !p.mine).forEach((p) => add(p.name, p.color));
+  ROOM.crowd.forEach((c) => add(c[0], c[1]));
+  const k = ACTIVITIES.findIndex((x) => x.id == id);
+  return out.slice(0, 6).map((p, i) => ({ ...p, note: notes[(k + i) % notes.length] }));
+};
+const buzz = (p) => {
+  try {
+    if (navigator.vibrate) navigator.vibrate(p);
+  } catch (e) {}
+};
+const hexA = (hex, a) => {
+  const n = parseInt(hex.slice(1), 16);
+  return `rgba(${(n >> 16) & 255},${(n >> 8) & 255},${n & 255},${a})`;
+};
+
+// ── เสียงบรรยากาศ (สังเคราะห์ด้วย Web Audio) — เริ่มได้หลังผู้ใช้แตะเท่านั้น (กฎของเบราว์เซอร์)
+const RoomAudio = {
+  ctx: null,
+  master: null,
+  live: [],
+  timers: [],
+  sig: '',
+  ensure() {
+    try {
+      if (!this.ctx) {
+        const AC = window.AudioContext || window.webkitAudioContext;
+        if (!AC) return false;
+        this.ctx = new AC();
+        this.master = this.ctx.createGain();
+        this.master.gain.value = 0;
+        this.master.connect(this.ctx.destination);
+      }
+      if (this.ctx.state == 'suspended') this.ctx.resume();
+      return true;
+    } catch (e) {
+      return false;
+    }
+  },
+  applyMute() {
+    if (!this.ctx) return;
+    const t = this.ctx.currentTime;
+    this.master.gain.cancelScheduledValues(t);
+    this.master.gain.setTargetAtTime(S.room.muted ? 0 : 0.6, t, 0.8);
+  },
+  stopLayers() {
+    this.timers.forEach(clearInterval);
+    this.timers = [];
+    this.live.forEach((n) => {
+      try {
+        n.stop();
+      } catch (e) {}
+    });
+    this.live = [];
+    this.sig = '';
+  },
+  stop() {
+    if (!this.ctx) return;
+    this.master.gain.cancelScheduledValues(this.ctx.currentTime);
+    this.master.gain.setValueAtTime(0, this.ctx.currentTime);
+    this.stopLayers();
+  },
+  osc(type, f, g, dest) {
+    const o = this.ctx.createOscillator(),
+      gn = this.ctx.createGain();
+    o.type = type;
+    o.frequency.value = f;
+    gn.gain.value = g;
+    o.connect(gn).connect(dest);
+    o.start();
+    this.live.push(o);
+  },
+  // คอร์ดนุ่ม ๆ ที่ "หายใจ" ช้า ๆ
+  pad(freqs, level, cutoff) {
+    const c = this.ctx,
+      f = c.createBiquadFilter(),
+      g = c.createGain(),
+      lfo = c.createOscillator(),
+      lg = c.createGain();
+    f.type = 'lowpass';
+    f.frequency.value = cutoff;
+    g.gain.value = level;
+    f.connect(g).connect(this.master);
+    lfo.frequency.value = 0.07;
+    lg.gain.value = level * 0.45;
+    lfo.connect(lg).connect(g.gain);
+    lfo.start();
+    this.live.push(lfo);
+    freqs.forEach((fr) => {
+      this.osc('sine', fr, 0.16, f);
+      this.osc('triangle', fr * 1.004, 0.05, f);
+    });
+  },
+  // เสียงลม / น้ำ / ห้อง (noise ผ่านฟิลเตอร์ + คลื่นช้า ๆ)
+  noise(cutoff, level, rate) {
+    const c = this.ctx,
+      len = c.sampleRate * 2,
+      buf = c.createBuffer(1, len, c.sampleRate),
+      d = buf.getChannelData(0);
+    let last = 0;
+    for (let i = 0; i < len; i++) {
+      last = (last + 0.02 * (Math.random() * 2 - 1)) / 1.02;
+      d[i] = last * 3.5;
+    }
+    const src = c.createBufferSource(),
+      f = c.createBiquadFilter(),
+      g = c.createGain(),
+      lfo = c.createOscillator(),
+      lg = c.createGain();
+    src.buffer = buf;
+    src.loop = true;
+    f.type = 'lowpass';
+    f.frequency.value = cutoff;
+    g.gain.value = level;
+    lfo.frequency.value = rate;
+    lg.gain.value = level * 0.6;
+    lfo.connect(lg).connect(g.gain);
+    src.connect(f).connect(g).connect(this.master);
+    src.start();
+    lfo.start();
+    this.live.push(src, lfo);
+  },
+  blip(freq, dur, level, slide) {
+    const c = this.ctx,
+      t = c.currentTime,
+      o = c.createOscillator(),
+      g = c.createGain();
+    o.type = 'sine';
+    o.frequency.setValueAtTime(freq, t);
+    if (slide) o.frequency.exponentialRampToValueAtTime(freq * slide, t + dur * 0.7);
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(level, t + 0.015);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    o.connect(g).connect(this.master);
+    o.start(t);
+    o.stop(t + dur + 0.05);
+  },
+  birds() {
+    this.timers.push(
+      setInterval(() => {
+        if (Math.random() < 0.55) {
+          const base = 2300 + Math.random() * 1700,
+            n = 1 + Math.floor(Math.random() * 3);
+          for (let k = 0; k < n; k++) setTimeout(() => this.ctx && this.blip(base, 0.12, 0.035, 1.45), k * 150);
+        }
+      }, 1700),
+    );
+  },
+  pulse(bpm) {
+    this.timers.push(
+      setInterval(() => {
+        const c = this.ctx,
+          t = c.currentTime,
+          o = c.createOscillator(),
+          g = c.createGain();
+        o.frequency.setValueAtTime(95, t);
+        o.frequency.exponentialRampToValueAtTime(42, t + 0.16);
+        g.gain.setValueAtTime(0.32, t);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + 0.22);
+        o.connect(g).connect(this.master);
+        o.start(t);
+        o.stop(t + 0.25);
+      }, 60000 / bpm),
+    );
+  },
+  bells(freqs) {
+    this.timers.push(setInterval(() => this.blip(freqs[Math.floor(Math.random() * freqs.length)] * 2, 2.4, 0.045), 3200));
+  },
+  chime() {
+    if (this.ctx && this.live.length && !S.room.muted) this.blip(1318.5, 1.2, 0.05);
+  },
+  play(a, phase) {
+    const kind = roomKind(a),
+      tone = roomTone(a),
+      sig = a.id + phase;
+    if (this.sig == sig && this.live.length) return this.applyMute();
+    this.stopLayers();
+    if (!this.ensure()) return;
+    this.sig = sig;
+    const amb = { nature: [750, 0.05, 0.12], water: [420, 0.09, 0.16], studio: [300, 0.025, 0.05] }[kind];
+    const fast = ['Running', 'Cycling', 'Dance', 'Muay Thai', 'Padel', 'Climbing'].includes(a.cat);
+    if (phase == 'after') {
+      this.pad([293.66, 369.99, 440, 587.33], 0.5, 1400);
+      this.noise(amb[0], amb[1] * 0.6, amb[2]);
+      this.bells([293.66, 369.99, 440]);
+    } else {
+      this.pad([220, 277.18, 329.63, 415.3], phase == 'live' ? 0.42 : 0.5, phase == 'live' ? 1900 : 1100);
+      this.noise(amb[0], amb[1], amb[2]);
+      if (kind == 'nature' && tone != 'night') this.birds();
+      if (phase == 'live') this.pulse(fast ? 112 : 64);
+    }
+    this.applyMute();
+  },
+};
+
+// ── อนุภาคแสง (ฝุ่นแสงลอยขึ้น / ฟองน้ำสำหรับกิจกรรมทางน้ำ)
+let roomStopFx = null,
+  roomTimers = [],
+  roomMounted = false;
+const roomParticles = (cv, a, phase) => {
+  const ctx = cv.getContext('2d'),
+    dpr = window.devicePixelRatio || 1,
+    W = cv.clientWidth,
+    H = cv.clientHeight,
+    kind = roomKind(a),
+    col = ROOM_TONES[roomTone(a)][2],
+    still = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches,
+    speed = phase == 'live' ? 1.9 : 1,
+    ps = Array.from({ length: phase == 'live' ? 70 : 46 }, () => ({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      r: kind == 'water' ? 2 + Math.random() * 5 : 0.8 + Math.random() * 2.2,
+      v: (0.15 + Math.random() * 0.5) * speed,
+      t: Math.random() * 6.3,
+    }));
+  cv.width = W * dpr;
+  cv.height = H * dpr;
+  ctx.scale(dpr, dpr);
+  let raf = 0;
+  const draw = () => {
+    ctx.clearRect(0, 0, W, H);
+    for (const p of ps) {
+      if (!still) {
+        p.y -= p.v;
+        p.t += 0.02;
+        p.x += Math.sin(p.t) * 0.3;
+        if (p.y < -10) (p.y = H + 10), (p.x = Math.random() * W);
+      }
+      const tw = 0.3 + 0.35 * (1 + Math.sin(p.t * 2)) * 0.5;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, 6.3);
+      if (kind == 'water') {
+        ctx.strokeStyle = `rgba(255,255,255,${tw})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      } else {
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = col;
+        ctx.fillStyle = hexA(col, tw + 0.2);
+        ctx.fill();
+      }
+    }
+    if (!still) raf = requestAnimationFrame(draw);
+  };
+  draw();
+  return () => cancelAnimationFrame(raf);
+};
+
+function roomMount(id) {
+  const a = A[id],
+    phase = roomPhase(id);
+  if (roomStopFx) roomStopFx();
+  roomTimers.forEach(clearInterval);
+  roomTimers = [];
+  roomMounted = true;
+  const cv = $('#rmCanvas');
+  if (cv) roomStopFx = roomParticles(cv, a, phase);
+  if (!S.room.open) return;
+  RoomAudio.play(a, phase);
+  if (phase == 'before')
+    roomTimers.push(
+      setInterval(() => {
+        const el = $('#rmCd');
+        if (el) el.textContent = roomCountdown(id);
+      }, 30000),
+    );
+  if (phase == 'live')
+    roomTimers.push(
+      setInterval(() => {
+        let n = S.room.live[id] ?? Math.round(a.going * 0.6);
+        if (n >= a.going + (S.room.here[id] ? 1 : 0)) return;
+        S.room.live[id] = ++n;
+        const c = $('#rmCount'),
+          tk = $('#rmTicker'),
+          ring = $('#rmRing');
+        if (!c) return;
+        c.textContent = n;
+        const who = roomPeople(id, ROOM.liveTicker)[n % 6];
+        if (tk && who) tk.innerHTML = `<b>${who.name}</b> checked in · ${who.note}`;
+        if (ring) {
+          const r = document.createElement('i');
+          r.className = 'rm-ripple';
+          ring.appendChild(r);
+          setTimeout(() => r.remove(), 1700);
+        }
+        RoomAudio.chime();
+      }, 2600),
+    );
+}
+function roomUnmount() {
+  if (!roomMounted) return;
+  roomMounted = false;
+  if (roomStopFx) roomStopFx();
+  roomStopFx = null;
+  roomTimers.forEach(clearInterval);
+  roomTimers = [];
+  RoomAudio.stop();
+  S.room.open = false;
+  S.room.seen = {};
+}
+const roomAfterRender = (n, p) => (n == 'room' ? roomMount(p) : roomUnmount());
+
+const SPK = (on) =>
+  `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/>${on ? '<path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/>' : '<path d="M17 9l5 6M22 9l-5 6"/>'}</svg>`;
+
+SC.room = (id) => {
+  const a = A[id],
+    pi = planItem(id),
+    tone = roomTone(a),
+    T = ROOM_TONES[tone],
+    ph = roomPhase(id),
+    img = activityImg(id),
+    mine = S.room.notes[id] || [],
+    // แอนิเมชันเปิดห้อง/คนลอยเข้ามา เล่นครั้งแรกของแต่ละช่วงเท่านั้น (กดโน้ตหรือเช็คอินแล้วคนไม่หายไปเริ่มใหม่)
+    fresh = S.room.open && !S.room.seen[id + ph];
+  if (S.room.open) S.room.seen[id + ph] = true;
+  const bg = img ? `<img class="rm-bg" src="${img}" alt="">` : '<div class="rm-bg" style="background:linear-gradient(160deg,#2b3f8f,#0d1431)"></div>';
+  const seg = [['before', 'Before'], ['live', 'Live'], ['after', 'After']]
+    .map((x) => `<button role="tab" aria-selected="${ph == x[0]}" data-a="rphase:${id}:${x[0]}" class="${ph == x[0] ? 'on' : ''}">${x[1]}</button>`)
+    .join('');
+  const top = `<div class="rm-top"><button data-a="back" aria-label="Leave room" class="rm-glass rm-ic">‹</button><div class="rm-seg rm-glass" role="tablist" aria-label="Room moment">${seg}</div><button data-a="rmute" aria-label="${S.room.muted ? 'Turn sound on' : 'Mute sound'}" class="rm-glass rm-ic">${SPK(!S.room.muted)}</button></div>`;
+  const head = `<div class="rm-head"><div class="rm-meta">${a.day.toUpperCase()} · ${a.time} · ${a.place.toUpperCase()}</div><h1 class="rm-title">${a.title}</h1><div class="rm-mood">${ROOM.mood[ph]}</div></div>`;
+  let body = '';
+  if (ph == 'before') {
+    const POS = [[6, 4], [48, 14], [14, 32], [54, 44], [4, 62], [44, 76]],
+      people = roomPeople(id, ROOM.notesBefore);
+    body =
+      `<div class="rm-stage">${people
+        .map(
+          (p, i) =>
+            `<div class="rm-p" style="left:${POS[i][0]}%;top:${POS[i][1]}%;animation-delay:${0.5 + i * 0.8}s"><div class="rm-bob" style="animation-delay:${i * 0.9}s">${avatar(p.color, 38, p.name)}<div class="rm-note"><b>${p.name}</b>${p.note}</div></div></div>`,
+        )
+        .join('')}</div>` +
+      `<div class="rm-panel rm-glass"><div class="rm-count" id="rmCd">${roomCountdown(id)}</div><div class="rm-sub">${a.going + mine.length} คนกำลังเตรียมตัว · ${a.solo} คนมาคนเดียวเหมือนคุณ</div>${
+        mine.length ? `<div class="rm-mine">${avatar(USER.color, 26, USER.name)}<span><b>You</b> · ${mine[mine.length - 1]}</span></div>` : ''
+      }<div class="rm-quick" aria-label="Leave a note for the room">${ROOM.quick.map((q, i) => `<button data-a="rnote:${id}:${i}">${q}</button>`).join('')}</div><div class="rm-row">${
+        pi
+          ? `<button data-go="chat:${id}" class="rm-btn">Group chat</button><button data-go="route:${id}" class="rm-btn rm-btn-y">Route</button>`
+          : `<button data-a="join:${id}" class="rm-btn rm-btn-y">Join to be part of this</button>`
+      }</div></div>`;
+  } else if (ph == 'live') {
+    const n = S.room.live[id] ?? Math.round(a.going * 0.6),
+      here = S.room.here[id],
+      first = roomPeople(id, ROOM.liveTicker)[0];
+    body =
+      `<div class="rm-live"><div class="rm-ring" id="rmRing"><div class="rm-ring-core"><b id="rmCount">${n}</b><span>of ${a.going + (here ? 1 : 0)} here</span></div></div><div class="rm-ticker" id="rmTicker" aria-live="polite"><b>${first.name}</b> checked in · ${first.note}</div></div>` +
+      `<div class="rm-panel rm-glass"><div class="rm-sub">ทุกการเช็คอินคือเสียงหัวใจของห้องนี้</div><div class="rm-row">${
+        here ? '<div class="rm-btn rm-btn-done">You’re here ✓</div>' : `<button data-a="rcheck:${id}" class="rm-btn rm-btn-y">I’m here · Check in</button>`
+      }<button data-go="chat:${id}" class="rm-btn">Group chat</button></div></div>`;
+  } else {
+    const people = roomPeople(id, ROOM.notesAfter),
+      pos = ['50% 30%', '20% 60%', '80% 40%', '35% 80%', '65% 20%', '50% 70%'],
+      rot = [-3, 2.5, 1.5, -2, -1.5, 3];
+    body =
+      `<div class="rm-wall">${people
+        .map(
+          (p, i) =>
+            `<figure class="rm-tile" style="--r:${rot[i]}deg;animation-delay:${0.3 + i * 0.22}s">${img ? `<img src="${img}" alt="" style="object-position:${pos[i]}">` : '<div class="rm-ph"></div>'}<figcaption>${avatar(p.color, 20, p.name)}<span>${p.note}</span></figcaption></figure>`,
+        )
+        .join('')}</div>` +
+      `<div class="rm-panel rm-glass"><div class="rm-stats"><div><b>${a.going}</b><span>คนมาด้วยกัน</span></div><div><b>${a.duration}</b><span>ที่ใช้ร่วมกัน</span></div><div><b>${2 + (a.solo % 4)}</b><span>เพื่อนใหม่</span></div></div><div class="rm-row"><button data-a="rrecap:${id}" class="rm-btn rm-btn-y">Share Recap</button><button data-go="club:${a.club}" class="rm-btn">Next from club</button></div></div>`;
+  }
+  const gate = S.room.open
+    ? ''
+    : `<button class="rm-gate" data-a="roomenter:${id}" aria-label="Step inside ${a.title}"><span class="rm-gate-glow"></span><span class="rm-gate-k">VYBE ROOM</span><span class="rm-gate-t">${a.title}</span><span class="rm-gate-s">แตะเพื่อก้าวเข้าไป</span><span class="rm-gate-h"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="5" height="7" rx="2"/><rect x="16" y="14" width="5" height="7" rx="2"/></svg>เปิดเสียงเพื่อสัมผัสบรรยากาศเต็มรูปแบบ</span></button>`;
+  return `<div class="rm ${fresh ? 'rm-in' : S.room.open ? 'rm-still' : ''}" style="--rm-accent:${T[2]}">${bg}<div class="rm-tint" style="background:linear-gradient(180deg,${T[0]} 0%,rgba(0,0,0,.12) 36%,${T[1]} 100%)"></div><canvas id="rmCanvas" class="rm-cv" aria-hidden="true"></canvas>${top}${head}${body}${gate}</div>`;
+};
+
+// ════════════════════════════════════════════════════════════
 // 7. RUNTIME — วาดหน้าจอ รับการกด และเริ่มแอป
 // ════════════════════════════════════════════════════════════
 
@@ -2256,6 +2760,7 @@ function render() {
     )
     .join('');
   drawTour();
+  roomAfterRender(n, p);
 }
 
 // ── ทัวร์แนะนำการใช้งาน: ไฮไลต์ทีละจุด แล้วมีกล่องข้อความ Next / Skip
@@ -2392,6 +2897,46 @@ const ACTIONS = {
       S.stack = [{ n: 'payment', p: x }];
       render();
     } else toTab('schedule');
+  },
+
+  // ── activity room
+  roomenter: (x) => {
+    S.room.open = true;
+    RoomAudio.ensure();
+    buzz(15);
+    render();
+  },
+  rphase: (x, y) => {
+    S.room.phase[x] = y;
+    render();
+  },
+  rmute: () => {
+    S.room.muted = !S.room.muted;
+    RoomAudio.applyMute();
+    render();
+  },
+  rnote: (x, y) => {
+    const t = ROOM.quick[+y];
+    (S.room.notes[x] = S.room.notes[x] || []).push(t);
+    if (inPlan(x)) getChat(x).push(['You', t, hhmm()]);
+    buzz(20);
+    RoomAudio.chime();
+    render();
+    toast(inPlan(x) ? 'Your note is in the room and the group chat' : 'Your note is in the room');
+  },
+  rcheck: (x) => {
+    const a = A[x];
+    S.room.here[x] = true;
+    S.room.live[x] = (S.room.live[x] ?? Math.round(a.going * 0.6)) + 1;
+    buzz([20, 40, 20]);
+    RoomAudio.chime();
+    render();
+    toast('Checked in · everyone in the room can see you’re here');
+  },
+  rrecap: (x) => {
+    const r = S.recaps.find((q) => q.act == x);
+    if (r) go('recap:' + r.id);
+    else ACTIONS.finish(x);
   },
 
   etab: (x) => {
